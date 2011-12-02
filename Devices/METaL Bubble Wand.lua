@@ -12,5 +12,3 @@ bubble = BubbleTechnique{
 	navigate = {true, false, true} -- navigate in x and z only
 }
 addManipulator(bubble)
-
-simulation:startInSchedulerThread()
