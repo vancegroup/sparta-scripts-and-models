@@ -1,7 +1,7 @@
 --Keyboard subassembly implementation
 require("Actions")
 --The user should be setting this to the appropriate haptics-lab-jconf file location
-vrjKernel.loadConfigFile("C:/Users/carlsonp/Desktop/Subassembly_Keyboard.jconf")
+vrjKernel.loadConfigFile("C:/Users/carlsonp/Desktop/src/haptics-lab-jconf/fishbowl/mixins/Subassembly_Keyboard.jconf")
 subBtn = gadget.DigitalInterface("VJSubassembly")
 
 params = defineSimulationParameters{
