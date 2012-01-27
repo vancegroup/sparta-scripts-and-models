@@ -1,5 +1,10 @@
 --Keyboard subassembly implementation
 require("Actions")
+require("osgFX")
+
+require("getScriptFilename")
+vrjLua.appendToModelSearchPath(getScriptFilename())
+
 --The user should be setting this to the appropriate haptics-lab-jconf file location
 vrjKernel.loadConfigFile("C:/Users/carlsonp/Desktop/src/haptics-lab-jconf/fishbowl/mixins/Subassembly_Keyboard.jconf")
 subBtn = gadget.DigitalInterface("VJSubassembly")
@@ -8,26 +13,9 @@ params = defineSimulationParameters{
 	maxStiffness = 300.0
 }
 
-block1 = addObject{
-	voxelsize = 0.003,
-	position = {0.3, 0.3, 0.0},
-	density = 20,
-	Model("models/bimanual_study/block1.osg")
-}
-block2 = addObject{
-	voxelsize = 0.003,
-	position = {0.6, 0.3, 0.0},
-	density = 20,
-	Model("models/bimanual_study/block2.osg")
-}
+dofile(vrjLua.findInModelSearchPath("blocks_models.lua"))
 
---Add Omni
-right = Manipulators.Sensable.PhantomOmni{
-	name = "Omni1",
-	forces = true,
-	scale = 4.0
-}
-addManipulator(right)
+dofile(vrjLua.findInModelSearchPath("load_devices.lua"))
 
 function UserEnterExit()
 	--wait until key is pressed to go into edit mode
@@ -38,7 +26,7 @@ function UserEnterExit()
 	end
 end
 
-lastButtonState = false
+local lastButtonState = false
 function UserAddRemove()
 	if right:getButtonState(1) and right.hovering and lastButtonState == false then
 		lastButtonState = true
@@ -51,6 +39,11 @@ function UserAddRemove()
 	end
 end
 
-StartSubassembly(UserEnterExit, UserAddRemove)
+--This defines graphically what will change when items
+--are added/removed from the subassembly.
+local GraphicsNode = osgFX.Scribe()
+GraphicsNode:setWireframeLineWidth(20)
+
+StartSubassembly(UserEnterExit, UserAddRemove, GraphicsNode)
 
 simulation:startInSchedulerThread()
