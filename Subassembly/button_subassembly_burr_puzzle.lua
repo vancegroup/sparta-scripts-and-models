@@ -27,7 +27,7 @@ params = defineSimulationParameters{
 OFF = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
-		scale = 2,
+		scale = 1.5,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		Model("C:/Users/carlsonp/Desktop/button/onbutton.ive"),
 	}
@@ -36,7 +36,7 @@ OFF = Transform{
 ON = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
-		scale = 2,
+		scale = 1.5,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		Model("C:/Users/carlsonp/Desktop/button/offbutton.ive"),
 	}
