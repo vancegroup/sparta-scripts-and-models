@@ -64,9 +64,25 @@ trans_switch:addChild(TransXform)
 trans_switch:setValue(0,true)
 trans_switch:setValue(1,false)
 
+function setButtonTransparencyON()
+	trans_switch:setValue(1,true)
+	trans_switch:setValue(0,false)
+end
 
+function setButtonTransparencyOFF()
+	trans_switch:setValue(1,false)
+	trans_switch:setValue(0,true)
+end
 
+function setButtonModelON()
+	button_Switch:setValue(1,true)
+	button_Switch:setValue(0,false)
+end
 
+function setButtonModelOFF()
+	button_Switch:setValue(1,false)
+	button_Switch:setValue(0,true)
+end
 
 function getTransformForVPSBody(coordinateFrame, node)
 	if node == nil then
@@ -79,39 +95,73 @@ function getTransformForVPSBody(coordinateFrame, node)
 	end
 end
 
+local buttonXForm = Transform{
+	position = {0.0, 0.8, -0.4},
+	trans_switch,
+}
+RelativeTo.World:addChild(buttonXForm)
+
+
+local lastButtonState2 = false
+local gloveInProximity = false
+buttonstate = "OFF"
 
 function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
 	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 	if distance < radius then
-		--set transparency on 
-		trans_switch:setValue(1,true)
-		trans_switch:setValue(0,false)
+		setButtonTransparencyON()
 		if right:getButtonState(1) and lastButtonState2 == false then
 			if buttonstate == "OFF" then
 				buttonstate = "ON"
-				button_Switch:setValue(1,true)
-				button_Switch:setValue(0,false)
+				setButtonModelON()
 			else 
 				buttonstate = "OFF"
-				button_Switch:setValue(1,false)
-				button_Switch:setValue(0,true)
+				setButtonModelOFF()
 			end
 			lastButtonState2 = true
 			return true
 		end
 	else
-		trans_switch:setValue(1,false)
-		trans_switch:setValue(0,true)
+		setButtonTransparencyOFF()
 		return false
 	end
 	lastButtonState2 = false
 	return false
 end
 
+function gloveDistCheck(buttonXForm, manip, manip_osg, radius)
+	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+	if distance < radius then
+		setButtonTransparencyON()
+		if gloveInProximity == false then
+
+			gloveInProximity = true
+		end
+		return false
+	else
+		if gloveInProximity == true then
+			setButtonTransparencyOFF()
+			gloveInProximity = false
+			if buttonstate == "OFF" then
+				buttonstate = "ON"
+				setButtonModelON()
+			else
+				buttonstate = "OFF"
+				setButtonModelOFF()
+			end
+			return true
+		else
+			return false
+		end
+	end
+end
+
 local myRadius = buttonXForm:computeBound():radius()
 function UserEnterExit()
-	condition = buttonDistanceCheck(buttonXForm,right,getTransformForVPSBody(right):getChild(0),myRadius)
-	if condition then
+	local omni = buttonDistanceCheck(buttonXForm,right,getTransformForVPSBody(right):getChild(0),myRadius)
+	local glove = gloveDistCheck(buttonXForm, left, getTransformForVPSBody(left):getChild(0), myRadius)
+	--XOR
+	if (omni and not glove) or (glove and not omni) then
 		return true
 	else
 		return false
