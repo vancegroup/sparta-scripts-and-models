@@ -1,10 +1,16 @@
 --Keyboard subassembly implementation
 require("Actions")
 require("osgFX")
-
 require("getScriptFilename")
 vrjLua.appendToModelSearchPath(getScriptFilename())
+params = defineSimulationParameters{
+	maxStiffness = 300.0
+}
+dofile(vrjLua.findInModelSearchPath("burr_models.lua"))
+dofile(vrjLua.findInModelSearchPath("load_devices.lua"))
 
+
+--used for custom button
 function makeTransparent(node)
 	local state = node:getOrCreateStateSet()
 	state:setRenderingHint(2) -- transparent bin
@@ -20,10 +26,8 @@ function makeTransparent(node)
 	node:setStateSet(state)
 end
 
-params = defineSimulationParameters{
-	maxStiffness = 300.0
-}
 
+--Load in off button
 OFF = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
@@ -32,7 +36,7 @@ OFF = Transform{
 		Model("C:/Users/carlsonp/Desktop/button/onbutton.ive"),
 	}
 }
-
+--Load in on button
 ON = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
@@ -62,18 +66,6 @@ trans_switch:setValue(1,false)
 
 
 
-local buttonXForm = Transform{
-	position = {0.0, 0.8, -0.4},
-	trans_switch,
-}
-RelativeTo.World:addChild(buttonXForm)
-
-local lastButtonState2 = false
-local buttonstate = "OFF"
-
-dofile(vrjLua.findInModelSearchPath("burr_models.lua"))
-
-dofile(vrjLua.findInModelSearchPath("load_devices.lua"))
 
 
 function getTransformForVPSBody(coordinateFrame, node)
