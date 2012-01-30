@@ -33,7 +33,7 @@ OFF = Transform{
 	Transform{
 		scale = 1.5,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		Model("C:/Users/carlsonp/Desktop/button/onbutton.ive"),
+		Model(".././OnOff-Button/onbutton.ive"),
 	}
 }
 --Load in on button
@@ -42,7 +42,7 @@ ON = Transform{
 	Transform{
 		scale = 1.5,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
-		Model("C:/Users/carlsonp/Desktop/button/offbutton.ive"),
+		Model(".././OnOff-Button/offbutton.ive"),
 	}
 }
 --which button to display - default to OFF (0, true)
