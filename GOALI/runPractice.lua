@@ -2,8 +2,8 @@ function runPractice()
 
 	--Start the practice run
 	voxSize = 0.003
-	densitySize = 200
-	scaleSize = 10.0
+	densitySize = 20
+	scaleSize = 1.0
 
 	block1 = addObject{
 		voxelsize = voxSize,
@@ -11,7 +11,7 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block1.ive")
+			Model("Models/Blocks/block1.osg")
 		}
 	}
 	block2 = addObject{
@@ -20,7 +20,7 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block1.ive")
+			Model("Models/Blocks/block1.osg")
 		}
 	}
 	block3 = addObject{
@@ -29,7 +29,7 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block1.ive")
+			Model("Models/Blocks/block1.osg")
 		}
 	}
 	block4 = addObject{
@@ -38,7 +38,7 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block1.ive")
+			Model("Models/Blocks/block2.osg")
 		}
 	}
 	block5 = addObject{
@@ -47,7 +47,7 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block1.ive")
+			Model("Models/Blocks/block2.osg")
 		}
 	}
 	block6 = addObject{
@@ -56,37 +56,9 @@ function runPractice()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block2.ive")
+			Model("Models/Blocks/block2.osg")
 		}
 	}
-	block7 = addObject{
-		voxelsize = voxSize,
-		position = {0.0, 1.3, -0.5},
-		density = densitySize,
-		Transform{
-			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block3.ive")
-		}
-	}
-	block8 = addObject{
-		voxelsize = voxSize,
-		position = {0.3, 1.3, -0.5},
-		density = densitySize,
-		Transform{
-			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block4.ive")
-		}
-	}
-	block9 = addObject{
-		voxelsize = voxSize,
-		position = {0.6, 1.3, -0.5},
-		density = densitySize,
-		Transform{
-			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Falling Star/Block4.ive")
-		}
-	}
-
 
 	setHelpText("Waiting to start practice...")
 	print("Waiting to start practice...")
@@ -95,18 +67,16 @@ function runPractice()
 		Actions.waitForRedraw()
 	until startBtn.justPressed
 
-	setHelpText("Twenty-minute Practice Period")
-	
-	SubassemblyStart()
+	setHelpText("Ten-minute Practice Period")
 
 	simulation:startInSchedulerThread()
 
-	--20-minute trial period
-	Actions.waitSeconds(5)
-	--Actions.waitSeconds(60 * 20)
+	--10-minute trial period
+	--Actions.waitSeconds(5)
+	Actions.waitSeconds(60 * 10)
 	simulation:waitForStop()
 	
-	SubassemblyStop()
+	resetSubassemblyBodies()
 
 	--Delete and cleanup all the pieces
 	removeObject(block1)
@@ -115,9 +85,6 @@ function runPractice()
 	removeObject(block4)
 	removeObject(block5)
 	removeObject(block6)
-	removeObject(block7)
-	removeObject(block8)
-	removeObject(block9)
 
 	print("Finished with practice.")
 	setHelpText("Finished with Practice")
