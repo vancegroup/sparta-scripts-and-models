@@ -1,0 +1,211 @@
+Group {
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 1
+  MatrixTransform {
+    name "block1"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      0 0 0 1
+    }
+    num_children 1
+    LOD {
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      Center 0.00778649 -0.0100729 0.0508
+      Radius -1
+      RangeMode DISTANCE_FROM_EYE_POINT
+      RangeList 1 {
+        0 3.40282e+38
+      }
+      num_children 1
+      Geode {
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 2
+        Geometry {
+          DataVariance STATIC
+          StateSet {
+            DataVariance STATIC
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+            Material {
+              ColorMode OFF
+              ambientColor FRONT 0 0 0.733333 1
+              ambientColor BACK  0.2 0.2 0.2 1
+              diffuseColor FRONT 0 0 0.733333 1
+              diffuseColor BACK  0.8 0.8 0.8 1
+              specularColor FRONT 1 1 1 1
+              specularColor BACK  0 0 0 1
+              emissionColor FRONT 0 0 0 1
+              emissionColor BACK  0 0 0 1
+              shininess FRONT 15
+              shininess BACK  0
+            }
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 6
+          {
+            DrawArrays TRIANGLE_STRIP 0 4
+            DrawArrays TRIANGLE_STRIP 4 4
+            DrawArrays TRIANGLE_STRIP 8 4
+            DrawArrays TRIANGLE_STRIP 12 4
+            DrawArrays TRIANGLE_STRIP 16 4
+            DrawArrays TRIANGLE_STRIP 20 10
+          }
+          VertexArray Vec3Array 30
+          {
+            -0.0430135 -0.0608729 0.1016
+            -0.0430135 0.0407271 0.1016
+            -0.0430135 -0.0608729 0
+            -0.0430135 0.0407271 0
+            0.0585865 -0.0608729 0
+            0.0585865 0.0407271 0
+            0.0585865 -0.0608729 0.1016
+            0.0585865 0.0407271 0.1016
+            0.0585865 0.0407271 0
+            -0.0430135 0.0407271 0
+            0.0585865 0.0407271 0.1016
+            -0.0430135 0.0407271 0.1016
+            0.0585865 -0.0608729 0.1016
+            -0.0430135 -0.0608729 0.1016
+            0.0585865 -0.0608729 0
+            -0.0430135 -0.0608729 0
+            0.0585865 0.0407271 0
+            0.0585865 -0.0608729 0
+            -0.0430135 0.0407271 0
+            -0.0430135 -0.0608729 0
+            0.0585865 -0.0608729 0.1016
+            0.0522365 -0.0545229 0.1016
+            -0.0430135 -0.0608729 0.1016
+            -0.0366635 -0.0545229 0.1016
+            -0.0430135 0.0407271 0.1016
+            -0.0366635 0.0343771 0.1016
+            0.0585865 0.0407271 0.1016
+            0.0522365 0.0343771 0.1016
+            0.0585865 -0.0608729 0.1016
+            0.0522365 -0.0545229 0.1016
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 30
+          {
+            -1 -1.36592e-16 0
+            -1 -1.36592e-16 0
+            -1 -1.36592e-16 0
+            -1 -1.36592e-16 0
+            1 1.36592e-16 -0
+            1 1.36592e-16 -0
+            1 1.36592e-16 -0
+            1 1.36592e-16 -0
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            -0 -1 -0
+            -0 -1 -0
+            -0 -1 -0
+            -0 -1 -0
+            0 -0 -1
+            0 -0 -1
+            0 -0 -1
+            0 -0 -1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+          }
+        }
+        Geometry {
+          DataVariance STATIC
+          StateSet {
+            DataVariance STATIC
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+            Material {
+              ColorMode OFF
+              ambientColor FRONT 0.466667 0.466667 1 1
+              ambientColor BACK  0.2 0.2 0.2 1
+              diffuseColor FRONT 0.466667 0.466667 1 1
+              diffuseColor BACK  0.8 0.8 0.8 1
+              specularColor FRONT 1 1 1 1
+              specularColor BACK  0 0 0 1
+              emissionColor FRONT 0 0 0 1
+              emissionColor BACK  0 0 0 1
+              shininess FRONT 15
+              shininess BACK  0
+            }
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 5
+          {
+            DrawArrays TRIANGLE_STRIP 0 4
+            DrawArrays TRIANGLE_STRIP 4 4
+            DrawArrays TRIANGLE_STRIP 8 4
+            DrawArrays TRIANGLE_STRIP 12 4
+            DrawArrays TRIANGLE_STRIP 16 4
+          }
+          VertexArray Vec3Array 20
+          {
+            -0.0366635 -0.0545229 0.0127
+            -0.0366635 0.0343771 0.0127
+            -0.0366635 -0.0545229 0.1016
+            -0.0366635 0.0343771 0.1016
+            -0.0366635 -0.0545229 0.1016
+            0.0522365 -0.0545229 0.1016
+            -0.0366635 -0.0545229 0.0127
+            0.0522365 -0.0545229 0.0127
+            0.0522365 0.0343771 0.1016
+            -0.0366635 0.0343771 0.1016
+            0.0522365 0.0343771 0.0127
+            -0.0366635 0.0343771 0.0127
+            0.0522365 -0.0545229 0.1016
+            0.0522365 0.0343771 0.1016
+            0.0522365 -0.0545229 0.0127
+            0.0522365 0.0343771 0.0127
+            0.0522365 -0.0545229 0.0127
+            0.0522365 0.0343771 0.0127
+            -0.0366635 -0.0545229 0.0127
+            -0.0366635 0.0343771 0.0127
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 20
+          {
+            1 1.56106e-16 0
+            1 1.56106e-16 0
+            1 1.56106e-16 0
+            1 1.56106e-16 0
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            0 -1 -0
+            0 -1 -0
+            0 -1 -0
+            0 -1 -0
+            -1 -1.56106e-16 -0
+            -1 -1.56106e-16 -0
+            -1 -1.56106e-16 -0
+            -1 -1.56106e-16 -0
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+          }
+        }
+      }
+    }
+  }
+}

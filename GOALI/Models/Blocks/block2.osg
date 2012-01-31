@@ -1,0 +1,121 @@
+Group {
+  nodeMask 0xffffffff
+  cullingActive TRUE
+  num_children 1
+  MatrixTransform {
+    name "block2"
+    nodeMask 0xffffffff
+    cullingActive TRUE
+    referenceFrame RELATIVE
+    Matrix {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      0 0 0 1
+    }
+    num_children 1
+    LOD {
+      nodeMask 0xffffffff
+      cullingActive TRUE
+      Center 0.0209002 0.0191394 0.041275
+      Radius -1
+      RangeMode DISTANCE_FROM_EYE_POINT
+      RangeList 1 {
+        0 3.40282e+38
+      }
+      num_children 1
+      Geode {
+        nodeMask 0xffffffff
+        cullingActive TRUE
+        num_drawables 1
+        Geometry {
+          DataVariance STATIC
+          StateSet {
+            DataVariance STATIC
+            rendering_hint DEFAULT_BIN
+            renderBinMode INHERIT
+            Material {
+              ColorMode OFF
+              ambientColor FRONT 1 0 0 1
+              ambientColor BACK  0.2 0.2 0.2 1
+              diffuseColor FRONT 1 0 0 1
+              diffuseColor BACK  0.8 0.8 0.8 1
+              specularColor FRONT 1 1 1 1
+              specularColor BACK  0 0 0 1
+              emissionColor FRONT 0 0 0 1
+              emissionColor BACK  0 0 0 1
+              shininess FRONT 15
+              shininess BACK  0
+            }
+          }
+          useDisplayList TRUE
+          useVertexBufferObjects FALSE
+          PrimitiveSets 6
+          {
+            DrawArrays TRIANGLE_STRIP 0 4
+            DrawArrays TRIANGLE_STRIP 4 4
+            DrawArrays TRIANGLE_STRIP 8 4
+            DrawArrays TRIANGLE_STRIP 12 4
+            DrawArrays TRIANGLE_STRIP 16 4
+            DrawArrays TRIANGLE_STRIP 20 4
+          }
+          VertexArray Vec3Array 24
+          {
+            -0.0203748 -0.0221356 0.08255
+            -0.0203748 0.0604144 0.08255
+            -0.0203748 -0.0221356 0
+            -0.0203748 0.0604144 0
+            -0.0203748 0.0604144 0.08255
+            -0.0203748 -0.0221356 0.08255
+            0.0621752 0.0604144 0.08255
+            0.0621752 -0.0221356 0.08255
+            0.0621752 -0.0221356 0
+            0.0621752 0.0604144 0
+            0.0621752 -0.0221356 0.08255
+            0.0621752 0.0604144 0.08255
+            -0.0203748 -0.0221356 0
+            -0.0203748 0.0604144 0
+            0.0621752 -0.0221356 0
+            0.0621752 0.0604144 0
+            0.0621752 0.0604144 0
+            -0.0203748 0.0604144 0
+            0.0621752 0.0604144 0.08255
+            -0.0203748 0.0604144 0.08255
+            0.0621752 -0.0221356 0.08255
+            -0.0203748 -0.0221356 0.08255
+            0.0621752 -0.0221356 0
+            -0.0203748 -0.0221356 0
+          }
+          NormalBinding PER_VERTEX
+          NormalArray Vec3Array 24
+          {
+            -1 -1.68114e-16 0
+            -1 -1.68114e-16 0
+            -1 -1.68114e-16 0
+            -1 -1.68114e-16 0
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            -0 0 1
+            1 -0 -0
+            1 -0 -0
+            1 -0 -0
+            1 -0 -0
+            0 -0 -1
+            0 -0 -1
+            0 -0 -1
+            0 -0 -1
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            -0 1 -0
+            -0 -1 -0
+            -0 -1 -0
+            -0 -1 -0
+            -0 -1 -0
+          }
+        }
+      }
+    }
+  }
+}
