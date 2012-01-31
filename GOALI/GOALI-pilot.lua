@@ -12,6 +12,7 @@ runfile("csvwriter.lua")
 
 require("Text")
 require("Actions")
+require("osgFX")
 
 params = defineSimulationParameters{
 	--This is a good parameter for the omnis
@@ -84,6 +85,7 @@ csv.cols = {
 	"Handedness",
 	"Time"
 }
+csv:flush()
 
 Actions.addFrameAction(function(dt)
 	runPractice()
