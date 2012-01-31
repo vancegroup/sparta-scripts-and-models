@@ -5,8 +5,6 @@ function runStudy()
 	repeat
 		Actions.waitForRedraw()
 	until startBtn.justPressed
-	
-	SubassemblyStart()
 
 	simulation:startInSchedulerThread()
 
@@ -20,7 +18,7 @@ function runStudy()
 		local delta = Actions.waitForRedraw()
 		taskTime = taskTime + delta
 		totalTime = totalTime + delta
-		
+
 		if startBtn.justPressed then
 			--finished assembly
 			print("Study Time: " .. tostring(taskTime))
@@ -29,18 +27,17 @@ function runStudy()
 				Time = taskTime
 			}
 			csv:flush()
+
+			--reset subassembly back to default empty sets
+			resetSubassemblyBodies()
 			
-			SubassemblyStop()
 			--reset pieces back to starting point
 			resetPuzzlePieces()
 			--reset task time
 			taskTime = 0
-			--reset subassembly back to default empty sets
-			resetSubassemblyBodies()
-			SubassemblyStart()
 		end
-		
-		if totalTime > (10) then
+
+		if totalTime > (60 * 20) then
 			--save last time to file
 			print("Study Time: " .. tostring(taskTime) .. "(DidNotFinish)")
 			csv:writeRow{
@@ -52,10 +49,12 @@ function runStudy()
 			break
 		end
 	end
-	
+
+	removePuzzlePieces()
+
 	print("Study finished")
 	setHelpText("Study finished")
 	simulation:waitForStop()
-	SubassemblyStop()
+
 	Actions.waitSeconds(3)
 end
