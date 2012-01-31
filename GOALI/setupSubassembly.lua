@@ -86,11 +86,11 @@ end
 function returnButtonPosition()
 	if domHand == "right" then
 		print("Setting button position to left hand side.")
-		local button_pos = {0.0, 0.8, -0.4}
+		local button_pos = {0.0, 0.85, -0.25}
 		return button_pos
 	else
 		print("Setting button position to right hand side.")
-		local button_pos = {0.6, 0.8, -0.4}
+		local button_pos = {0.6, 0.85, -0.25}
 		return button_pos
 	end
 end
