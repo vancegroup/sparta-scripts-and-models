@@ -11,7 +11,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/BaseBlock.ive")
+			Model("Models/Burr/BaseBlock.ive")
 		}
 	}
 	block1 = addObject{
@@ -20,7 +20,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/Block1.ive")
+			Model("Models/Burr/Block1.ive")
 		}
 	}
 	block2 = addObject{
@@ -29,7 +29,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/Block2.ive")
+			Model("Models/Burr/Block2.ive")
 		}
 	}
 	block3 = addObject{
@@ -38,7 +38,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/Block3.ive")
+			Model("Models/Burr/Block3.ive")
 		}
 	}
 	block4 = addObject{
@@ -47,7 +47,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/Block4.ive")
+			Model("Models/Burr/Block4.ive")
 		}
 	}
 	block5 = addObject{
@@ -56,7 +56,7 @@ function loadBurrPuzzle()
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
-			Model("V:/Applications/Vances_group/GOALI/Burr/Block5.ive")
+			Model("Models/Burr/Block5.ive")
 		}
 	}
 end
@@ -64,12 +64,22 @@ end
 function resetPuzzlePieces()
 	simulation:waitForStop()
 	
-	baseblock:setPosition(positions[1])
-	block1:setPosition(positions[2])
-	block2:setPosition(positions[3])
-	block3:setPosition(positions[4])
-	block4:setPosition(positions[5])
-	block5:setPosition(positions[6])
+	baseblock:setPosition(positions[1][1], positions[1][2], positions[1][3])
+	block1:setPosition(positions[2][1], positions[2][2], positions[2][3])
+	block2:setPosition(positions[3][1], positions[3][2], positions[3][3])
+	block3:setPosition(positions[4][1], positions[4][2], positions[4][3])
+	block4:setPosition(positions[5][1], positions[5][2], positions[5][3])
+	block5:setPosition(positions[6][1], positions[6][2], positions[6][3])
 	
 	simulation:startInSchedulerThread()
+end
+
+function removePuzzlePieces()
+	--Delete and cleanup all the pieces
+	removeObject(baseblock)
+	removeObject(block1)
+	removeObject(block2)
+	removeObject(block3)
+	removeObject(block4)
+	removeObject(block5)
 end
