@@ -1,7 +1,7 @@
 function runStudy()
 
 	print("Waiting to start study...")
-	setHelpText("Waiting to start study...")
+
 	repeat
 		Actions.waitForRedraw()
 	until startBtn.justPressed
@@ -10,9 +10,6 @@ function runStudy()
 
 	local totalTime = 0
 	local taskTime = 0
-
-	print("Waiting for 'trial complete' signal...")
-	setHelpText("Trial timer running")
 
 	while true do
 		local delta = Actions.waitForRedraw()
@@ -53,7 +50,7 @@ function runStudy()
 	removePuzzlePieces()
 
 	print("Study finished")
-	setHelpText("Study finished")
+
 	simulation:waitForStop()
 
 	Actions.waitSeconds(3)

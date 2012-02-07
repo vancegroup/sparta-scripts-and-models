@@ -10,7 +10,6 @@ end
 
 runfile("csvwriter.lua")
 
-require("Text")
 require("Actions")
 require("osgFX")
 

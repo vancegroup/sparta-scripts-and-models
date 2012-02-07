@@ -60,14 +60,11 @@ function runPractice()
 		}
 	}
 
-	setHelpText("Waiting to start practice...")
 	print("Waiting to start practice...")
 
 	repeat
 		Actions.waitForRedraw()
 	until startBtn.justPressed
-
-	setHelpText("Ten-minute Practice Period")
 
 	simulation:startInSchedulerThread()
 
@@ -87,7 +84,7 @@ function runPractice()
 	removeObject(block6)
 
 	print("Finished with practice.")
-	setHelpText("Finished with Practice")
+
 	Actions.waitSeconds(3)
 
 end
