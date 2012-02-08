@@ -56,7 +56,7 @@ function runStudy()
 			for k, transform in pairs(osgTransforms) do
 				row[k] = getTranslationString(transform)
 			end
-			row["Time"] = "\""..tostring(totalTime).."\""
+			row["Time"] = "\"" .. tostring(totalTime) .. "\""
 			csv_pos:writeRow(row)
 			csv_pos:flush()
 			counter = counter - stride
@@ -74,7 +74,7 @@ function runStudy()
 
 			--reset subassembly back to default empty sets
 			resetSubassemblyBodies()
-			
+
 			--reset pieces back to starting point
 			resetPuzzlePieces()
 			--reset task time
@@ -89,7 +89,7 @@ function runStudy()
 				Time = taskTime .. "(DidNotFinish)"
 			}
 			csv:flush()
-			
+
 			break
 		end
 	end

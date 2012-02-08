@@ -49,8 +49,8 @@ ON = Transform{
 local button_Switch = osg.Switch()
 button_Switch:addChild(OFF)
 button_Switch:addChild(ON)
-button_Switch:setValue(0,true)
-button_Switch:setValue(1,false)
+button_Switch:setValue(0, true)
+button_Switch:setValue(1, false)
 
 --transparent group
 local TransXform = osg.Group()
@@ -61,27 +61,27 @@ TransXform:addChild(button_Switch)
 local trans_switch = osg.Switch()
 trans_switch:addChild(button_Switch)
 trans_switch:addChild(TransXform)
-trans_switch:setValue(0,true)
-trans_switch:setValue(1,false)
+trans_switch:setValue(0, true)
+trans_switch:setValue(1, false)
 
 function setButtonTransparencyON()
-	trans_switch:setValue(1,true)
-	trans_switch:setValue(0,false)
+	trans_switch:setValue(1, true)
+	trans_switch:setValue(0, false)
 end
 
 function setButtonTransparencyOFF()
-	trans_switch:setValue(1,false)
-	trans_switch:setValue(0,true)
+	trans_switch:setValue(1, false)
+	trans_switch:setValue(0, true)
 end
 
 function setButtonModelON()
-	button_Switch:setValue(1,true)
-	button_Switch:setValue(0,false)
+	button_Switch:setValue(1, true)
+	button_Switch:setValue(0, false)
 end
 
 function setButtonModelOFF()
-	button_Switch:setValue(1,false)
-	button_Switch:setValue(0,true)
+	button_Switch:setValue(1, false)
+	button_Switch:setValue(0, true)
 end
 
 function getTransformForVPSBody(coordinateFrame, node)
@@ -114,7 +114,7 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
 			if buttonstate == "OFF" then
 				buttonstate = "ON"
 				setButtonModelON()
-			else 
+			else
 				buttonstate = "OFF"
 				setButtonModelOFF()
 			end
@@ -158,7 +158,7 @@ end
 
 local myRadius = buttonXForm:computeBound():radius()
 function UserEnterExit()
-	local omni = buttonDistanceCheck(buttonXForm,right,getTransformForVPSBody(right):getChild(0),myRadius)
+	local omni = buttonDistanceCheck(buttonXForm, right, getTransformForVPSBody(right):getChild(0), myRadius)
 	local glove = gloveDistCheck(buttonXForm, left, getTransformForVPSBody(left):getChild(0), myRadius)
 	--XOR
 	if (omni and not glove) or (glove and not omni) then

@@ -5,7 +5,7 @@ if (domHand == "left") then
 	glove = Manipulators.Gadgeteer.Glove{position = "RightGlove",
 		options = "USB0",
 		hardware = "GloveHardware5DT",
-		reportType = "KalmanFilter",  -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
+		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-right-5dt.txt",
 	}
 	addManipulator(glove)
@@ -36,7 +36,7 @@ if (domHand == "right") then
 	glove = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
 		options = "USB1",
 		hardware = "GloveHardware5DT",
-		reportType = "KalmanFilter",  -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
+		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-left-5dt.txt",
 	}
 	addManipulator(glove)

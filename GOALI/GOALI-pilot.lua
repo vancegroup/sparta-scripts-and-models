@@ -45,7 +45,7 @@ do
 		helpGroup:addChild(
 			TextGeode{
 				...,
-				color = osg.Vec4(0,0.2,1.0,1.0), --blue text
+				color = osg.Vec4(0, 0.2, 1.0, 1.0), --blue text
 				position = {-2.5, 2.3, -8},
 				font = Font("DroidSansBold"),
 				lineHeight = 0.45
@@ -59,13 +59,13 @@ switchToMinimalRoom()
 runfile("FisherYatesShuffle.lua")
 -- Randomize starting positions
 positions = FisherYatesShuffle{
-					{0.05, 1.0, -0.5},
-					{0.35, 1.0, -0.5},
-					{0.65, 1.0, -0.5},
-					{0.05, 1.2, -0.5},
-					{0.35, 1.2, -0.5},
-					{0.65, 1.2, -0.5}
-				}
+	{0.05, 1.0, -0.5},
+	{0.35, 1.0, -0.5},
+	{0.65, 1.0, -0.5},
+	{0.05, 1.2, -0.5},
+	{0.35, 1.2, -0.5},
+	{0.65, 1.2, -0.5}
+}
 
 print("Setting up devices...")
 runfile("setupDevices.lua")
@@ -87,13 +87,15 @@ csv.cols = {
 }
 csv:flush()
 
-Actions.addFrameAction(function(dt)
-	runPractice()
-	loadBurrPuzzle()
-	runStudy()
+Actions.addFrameAction(
+	function(dt)
+		runPractice()
+		loadBurrPuzzle()
+		runStudy()
 
-	--Close file
-	csv:close()
+		--Close file
+		csv:close()
 
-	shutdown()
-end)--End action
+		shutdown()
+	end
+)--End action

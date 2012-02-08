@@ -12,7 +12,7 @@ addManipulator(right)
 left = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
 	options = "USB1",
 	hardware = "GloveHardware5DT",
-	reportType = "KalmanFilter",  -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
+	reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 	calibFile = "assets/calibrations/calib-left-5dt.txt",
 }
 addManipulator(left)

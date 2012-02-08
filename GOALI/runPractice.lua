@@ -72,7 +72,7 @@ function runPractice()
 	--Actions.waitSeconds(5)
 	Actions.waitSeconds(60 * 10)
 	simulation:waitForStop()
-	
+
 	resetSubassemblyBodies()
 
 	--Delete and cleanup all the pieces

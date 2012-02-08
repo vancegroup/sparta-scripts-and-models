@@ -4,7 +4,7 @@ function FisherYatesShuffle(input)
 	math.randomseed(os.time())
 	--Make sure to call this otherwise it gives the same value each time
 	--http://lua-users.org/lists/lua-l/2007-03/msg00553.html
-	math.random(1,2)
+	math.random(1, 2)
 
 	print(string.format("Shuffling %d elements...", #input))
 	-- initialize array to 0

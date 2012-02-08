@@ -63,14 +63,14 @@ end
 
 function resetPuzzlePieces()
 	simulation:waitForStop()
-	
+
 	baseblock:setPosition(positions[1][1], positions[1][2], positions[1][3])
 	block1:setPosition(positions[2][1], positions[2][2], positions[2][3])
 	block2:setPosition(positions[3][1], positions[3][2], positions[3][3])
 	block3:setPosition(positions[4][1], positions[4][2], positions[4][3])
 	block4:setPosition(positions[5][1], positions[5][2], positions[5][3])
 	block5:setPosition(positions[6][1], positions[6][2], positions[6][3])
-	
+
 	simulation:startInSchedulerThread()
 end
 

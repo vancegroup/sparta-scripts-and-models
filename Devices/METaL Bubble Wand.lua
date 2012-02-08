@@ -7,7 +7,7 @@ bubble = BubbleTechnique{
 	bubbleVelocityScale = 50.0, -- default of 3.0
 	position = {2, 0, 1.5}, -- starting position for bubble
 	elasticForce = true,
-	deviceCenter =  {2, 1.5, 1.5},
+	deviceCenter = {2, 1.5, 1.5},
 	showBubble = true,
 	navigate = {true, false, true} -- navigate in x and z only
 }
