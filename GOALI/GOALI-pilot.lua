@@ -79,7 +79,8 @@ runfile("loadPuzzleModels.lua")
 print("Running study...")
 runfile("runStudy.lua")
 
-csv = csvwriter.new("logs/" .. os.date("GOALI_%b_%d_%Y_-_%H%M%S") .. ".csv")
+datetime = os.date("GOALI_%b_%d_%Y_-_%H%M%S")
+csv = csvwriter.new("logs/" .. datetime .. ".csv")
 csv.cols = {
 	"Handedness",
 	"Time"
