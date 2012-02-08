@@ -59,12 +59,12 @@ switchToMinimalRoom()
 runfile("FisherYatesShuffle.lua")
 -- Randomize starting positions
 positions = FisherYatesShuffle{
-					{0.0, 1.0, -0.5},
-					{0.3, 1.0, -0.5},
-					{0.6, 1.0, -0.5},
-					{0.0, 1.2, -0.5},
-					{0.3, 1.2, -0.5},
-					{0.6, 1.2, -0.5}
+					{0.05, 1.0, -0.5},
+					{0.35, 1.0, -0.5},
+					{0.65, 1.0, -0.5},
+					{0.05, 1.2, -0.5},
+					{0.35, 1.2, -0.5},
+					{0.65, 1.2, -0.5}
 				}
 
 print("Setting up devices...")

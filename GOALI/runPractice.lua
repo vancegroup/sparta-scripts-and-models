@@ -7,7 +7,7 @@ function runPractice()
 
 	block1 = addObject{
 		voxelsize = voxSize,
-		position = {0.0, 0.9, -0.5},
+		position = {0.05, 0.9, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
@@ -16,7 +16,7 @@ function runPractice()
 	}
 	block2 = addObject{
 		voxelsize = voxSize,
-		position = {0.3, 0.9, -0.5},
+		position = {0.35, 0.9, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
@@ -25,7 +25,7 @@ function runPractice()
 	}
 	block3 = addObject{
 		voxelsize = voxSize,
-		position = {0.6, 0.9, -0.5},
+		position = {0.65, 0.9, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
@@ -34,7 +34,7 @@ function runPractice()
 	}
 	block4 = addObject{
 		voxelsize = voxSize,
-		position = {0.0, 1.1, -0.5},
+		position = {0.05, 1.1, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
@@ -43,7 +43,7 @@ function runPractice()
 	}
 	block5 = addObject{
 		voxelsize = voxSize,
-		position = {0.3, 1.1, -0.5},
+		position = {0.35, 1.1, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
@@ -52,7 +52,7 @@ function runPractice()
 	}
 	block6 = addObject{
 		voxelsize = voxSize,
-		position = {0.6, 1.1, -0.5},
+		position = {0.65, 1.1, -0.5},
 		density = densitySize,
 		Transform{
 			scale = scaleSize,
