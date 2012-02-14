@@ -42,3 +42,13 @@ if (domHand == "right") then
 	addManipulator(glove)
 end
 
+function makeGloveTransparent()
+	--hide the glove
+	hideInView(glove)
+
+	--make glove transparent and add it
+	local osgGlove = getTransformForVPSBody(glove):getChild(0)
+	print(help(osgGlove))
+	local transparentGroup = TransparentGroup{osgGlove}
+	RelativeTo.World:addChild(transparentGroup)
+end

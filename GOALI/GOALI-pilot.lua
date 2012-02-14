@@ -7,9 +7,9 @@ function runfile(fn)
 	dofile(vrjLua.findInModelSearchPath(fn))
 end
 
-
 runfile("csvwriter.lua")
 
+require("TransparentGroup")
 require("Actions")
 require("osgFX")
 
@@ -51,6 +51,8 @@ positions = FisherYatesShuffle{
 
 print("Setting up devices...")
 runfile("setupDevices.lua")
+makeGloveTransparent()
+print("Making glove transparent...")
 print("Setting up subassembly...")
 runfile("setupSubassembly.lua")
 
