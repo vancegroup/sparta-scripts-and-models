@@ -36,24 +36,6 @@ else
 	os.exit()
 end
 
-do
-	local helpGroup = osg.Group()
-	RelativeTo.World:addChild(helpGroup)
-	function setHelpText(...) -- ... means a variable number of parameters
-		helpGroup:removeChildren(0, helpGroup:getNumChildren())
-
-		helpGroup:addChild(
-			TextGeode{
-				...,
-				color = osg.Vec4(0, 0.2, 1.0, 1.0), --blue text
-				position = {-2.5, 2.3, -8},
-				font = Font("DroidSansBold"),
-				lineHeight = 0.45
-			}
-		)
-	end
-end
-
 switchToMinimalRoom()
 
 runfile("FisherYatesShuffle.lua")
