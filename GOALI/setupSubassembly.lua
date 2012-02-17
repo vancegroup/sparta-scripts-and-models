@@ -19,7 +19,7 @@ print("Loading in buttons...")
 OFF = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
-		scale = 1.5,
+		scale = 1.0,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		Model(".././OnOff-Button/onbutton.ive")
 	}
@@ -28,7 +28,7 @@ OFF = Transform{
 ON = Transform{
 	orientation = AngleAxis(Degrees(220), Axis{1.0, 0.0, 0.0}),
 	Transform{
-		scale = 1.5,
+		scale = 1.0,
 		orientation = AngleAxis(Degrees(90), Axis{0.0, 1.0, 0.0}),
 		Model(".././OnOff-Button/offbutton.ive")
 	}
