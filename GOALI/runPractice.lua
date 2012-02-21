@@ -68,9 +68,9 @@ function runPractice()
 
 	simulation:startInSchedulerThread()
 
-	--10-minute trial period
+	--8-minute trial period
 	--Actions.waitSeconds(5)
-	Actions.waitSeconds(60 * 10)
+	Actions.waitSeconds(60 * 8)
 	simulation:waitForStop()
 
 	resetSubassemblyBodies()
