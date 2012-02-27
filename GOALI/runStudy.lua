@@ -40,8 +40,6 @@ function runStudy()
 		Teal = getTransformForVPSBody(block5):getChild(0),
 	}
 
-	simulation:startInSchedulerThread()
-
 	local totalTime = 0
 	local taskTime = 0
 

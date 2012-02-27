@@ -59,10 +59,27 @@ function loadBurrPuzzle()
 			Model("Models/Burr/Block5.ive")
 		}
 	}
+
+	resetPuzzlePieces()
 end
 
 function resetPuzzlePieces()
+
+	local function randomOrientation(body)
+		local angle = math.random(1, 360)
+		local axis_x = math.random(0, 1)
+		local axis_y = math.random(0, 1)
+		local axis_z = math.random(0, 1)
+		local quat = osg.Quat(angle, osg.Vec3d(axis_x, axis_y, axis_z))
+		local new_matrix = body.matrix
+		new_matrix:setRotate(quat)
+		body.matrix = new_matrix
+	end
+
 	simulation:waitForStop()
+
+	--shuffle the starting positions
+	positions = FisherYatesShuffle(positions)
 
 	baseblock:setPosition(positions[1][1], positions[1][2], positions[1][3])
 	block1:setPosition(positions[2][1], positions[2][2], positions[2][3])
@@ -70,6 +87,13 @@ function resetPuzzlePieces()
 	block3:setPosition(positions[4][1], positions[4][2], positions[4][3])
 	block4:setPosition(positions[5][1], positions[5][2], positions[5][3])
 	block5:setPosition(positions[6][1], positions[6][2], positions[6][3])
+
+	randomOrientation(baseblock)
+	randomOrientation(block1)
+	randomOrientation(block2)
+	randomOrientation(block3)
+	randomOrientation(block4)
+	randomOrientation(block5)
 
 	simulation:startInSchedulerThread()
 end
