@@ -22,11 +22,19 @@ runfile("load_models.lua")
 runfile("setup_devices.lua")
 
 function turnOffForces()
-	right.forces = false
+	if handedness == "right" then
+		right.forces = false
+	else
+		left.forces = false
+	end
 end
 
 function turnOnForces()
-	right.forces = true
+	if handedness == "right" then
+		right.forces = true
+	else
+		left.forces = true
+	end
 end
 
 Actions.addFrameAction(
