@@ -40,17 +40,13 @@ end
 Actions.addFrameAction(
 	function(dt)
 		while true do
-			--Single Omni, no haptics
-			repeat
-				Actions.waitForRedraw()
-			until startBtn.justPressed
+			--haptics off
 			simulation:runFunctionWithSimulationPaused(turnOffForces)
-			--Single Omni, haptics
 			repeat
 				Actions.waitForRedraw()
 			until startBtn.justPressed
 			simulation:runFunctionWithSimulationPaused(turnOnForces)
-			--Omni (w/haptics) and Glove
+			--haptics on
 			repeat
 				Actions.waitForRedraw()
 			until startBtn.justPressed
