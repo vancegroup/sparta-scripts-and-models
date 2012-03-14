@@ -1,3 +1,8 @@
+
+
+require("getScriptFilename")
+vrjLua.appendToModelSearchPath(getScriptFilename())
+
 --Load in models
 voxSize = 0.003
 densitySize = 20
