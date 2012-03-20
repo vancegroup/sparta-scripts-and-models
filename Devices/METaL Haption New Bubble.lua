@@ -15,6 +15,7 @@ bubble = BubbleNav{
 	elasticForce = true,
 	deviceCenter = {0, 0.01678, 0.6},
 	showBubble = false,
+	wireframeBubble = true,
 	navigate = true,
 	navigator = nav
 }
