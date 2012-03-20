@@ -2,7 +2,11 @@
 nav = Navigation()
 
 bubble = BubbleNav{
-	bubble = TranslationalBubble(0.15, 100, .5, TranslationalBubble.PeakRingVelocity),
+	bubble = TranslationalBubble(
+		0.15, --radius
+		100, -- stiffness
+		1, -- velocity scale
+		TranslationalBubble.PeakRingVelocity),
 	manipulator = Manipulators.Haption.Virtuose6D3545{
 		ipaddress = "192.168.1.13",
 		scale = 1.0,
