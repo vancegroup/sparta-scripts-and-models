@@ -2,8 +2,8 @@ nav = Navigation()
 
 bubble = BubbleNav{
 	bubble = TranslationalBubble(
-		0.15, --radius
-		100, -- stiffness
+		0.22, --radius
+		150, -- stiffness
 		1, -- velocity scale
 		TranslationalBubble.PeakRingVelocity),
 	manipulator = Manipulators.Haption.Virtuose6D3545{
