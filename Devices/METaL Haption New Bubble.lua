@@ -1,4 +1,3 @@
-
 nav = Navigation()
 
 bubble = BubbleNav{
@@ -15,13 +14,37 @@ bubble = BubbleNav{
 		forces = true,
 		indexType = "INDEXING_NONE"
 	},
-	position = {0.5, 0.5, 0.5}, -- starting position for bubble
+	position = {0.0, 0.0, 0.0}, -- starting position for bubble
 	elasticForce = true,
 	deviceCenter = {0, 0.01678, 0.6},
 	showBubble = false,
 	wireframeBubble = true,
 	navigate = true,
-	navigator = nav
+	navigator = nav,
+	lockedToFloor = true
 }
+xlatemanip = translateManipulator{
+	nav:transformManipulator(bubble),
+	translation = {0,0,0}
+}
+addManipulator(xlatemanip)
 
-addManipulator(nav:transformManipulator(bubble))
+tracker = gadget.PositionInterface("HandTargetProxy")
+
+updateTranslate = function(vec)
+	local newTranslation = tracker.position + vec
+	print(("\nupdateTranslate(Vec(%f, %f, %f)) called: net translation applied is (%f, %f, %f)"):format(
+		newTranslation:x(),
+		newTranslation:y(),
+		newTranslation:z(),
+		tracker.position:x(),
+		tracker.position:y(),
+		tracker.position:z()))
+	simulation:runFunctionWithSimulationPaused(
+		function()
+			xlatemanip:setTranslation(newTranslation)
+		end
+	)
+end
+
+updateTranslate(Vec(0, 0.75, 0.3))
