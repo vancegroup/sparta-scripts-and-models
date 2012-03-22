@@ -1,6 +1,6 @@
 
 -- acceptable for a stiffness of 300 N/m
-partDensity = 20
+partDensity = partDensity or 20
 voxSize = 0.003
 bracketModelScale = bracketModelScale or 0.6
 ubracket = addObject{
