@@ -8,7 +8,7 @@ baseblock = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/BaseBlock.ive")
+		Model([[../GOALI/Models/Burr/BaseBlock.ive]])
 	}
 }
 block1 = addObject{
@@ -17,7 +17,7 @@ block1 = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/Block1.ive")
+		Model([[../GOALI/Models/Burr/Block1.ive]])
 	}
 }
 block2 = addObject{
@@ -26,7 +26,7 @@ block2 = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/Block2.ive")
+		Model([[../GOALI/Models/Burr/Block2.ive]])
 	}
 }
 block3 = addObject{
@@ -35,7 +35,7 @@ block3 = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/Block3.ive")
+		Model([[../GOALI/Models/Burr/Block3.ive]])
 	}
 }
 block4 = addObject{
@@ -44,7 +44,7 @@ block4 = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/Block4.ive")
+		Model([[../GOALI/Models/Burr/Block4.ive]])
 	}
 }
 block5 = addObject{
@@ -53,6 +53,6 @@ block5 = addObject{
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
-		Model("V:/Applications/Vances_group/GOALI/Burr/Block5.ive")
+		Model([[../GOALI/Models/Burr/Block5.ive]])
 	}
 }
