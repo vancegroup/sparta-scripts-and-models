@@ -84,16 +84,6 @@ function setButtonModelOFF()
 	button_Switch:setValue(0, true)
 end
 
-function getTransformForVPSBody(coordinateFrame, node)
-	if node == nil then
-		node = assert(knownInView(coordinateFrame))
-	end
-	if node:isSameKindAs(osg.MatrixTransform()) then
-		return node
-	else
-		return getTransformForVPSBody(coordinateFrame, node:getChild(0))
-	end
-end
 
 local buttonXForm = Transform{
 	position = {0.0, 0.8, -0.4},
@@ -158,8 +148,8 @@ end
 
 local myRadius = buttonXForm:computeBound():radius()
 function UserEnterExit()
-	local omni = buttonDistanceCheck(buttonXForm, right, getTransformForVPSBody(right):getChild(0), myRadius)
-	local glove = gloveDistCheck(buttonXForm, left, getTransformForVPSBody(left):getChild(0), myRadius)
+	local omni = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
+	local glove = gloveDistCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
 	--XOR
 	if (omni and not glove) or (glove and not omni) then
 		return true

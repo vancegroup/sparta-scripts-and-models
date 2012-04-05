@@ -47,7 +47,7 @@ function makeGloveTransparent()
 	hideInView(glove)
 
 	--make glove transparent and add it
-	local osgGlove = getTransformForVPSBody(glove):getChild(0)
+	local osgGlove = getTransformNodeForCoordinateFrame(glove):getChild(0)
 	local transparentGroup = TransparentGroup{osgGlove}
 	RelativeTo.World:addChild(transparentGroup)
 end

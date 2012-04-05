@@ -72,17 +72,6 @@ function setButtonModelOFF()
 	button_Switch:setValue(0, true)
 end
 
-function getTransformForVPSBody(coordinateFrame, node)
-	if node == nil then
-		node = assert(knownInView(coordinateFrame))
-	end
-	if node:isSameKindAs(osg.MatrixTransform()) then
-		return node
-	else
-		return getTransformForVPSBody(coordinateFrame, node:getChild(0))
-	end
-end
-
 function returnButtonPosition()
 	if domHand == "right" then
 		print("Setting button position to left hand side.")
@@ -159,11 +148,11 @@ end
 local myRadius = buttonXForm:computeBound():radius()
 function UserEnterExit()
 	if domHand == "right" then
-		right_hand = buttonDistanceCheck(buttonXForm, omni, getTransformForVPSBody(omni):getChild(0), myRadius)
-		left_hand = gloveDistCheck(buttonXForm, glove, getTransformForVPSBody(glove):getChild(0), myRadius)
+		right_hand = buttonDistanceCheck(buttonXForm, omni, getTransformNodeForCoordinateFrame(omni):getChild(0), myRadius)
+		left_hand = gloveDistCheck(buttonXForm, glove, getTransformNodeForCoordinateFrame(glove):getChild(0), myRadius)
 	else
-		left_hand = buttonDistanceCheck(buttonXForm, omni, getTransformForVPSBody(omni):getChild(0), myRadius)
-		right_hand = gloveDistCheck(buttonXForm, glove, getTransformForVPSBody(glove):getChild(0), myRadius)
+		left_hand = buttonDistanceCheck(buttonXForm, omni, getTransformNodeForCoordinateFrame(omni):getChild(0), myRadius)
+		right_hand = gloveDistCheck(buttonXForm, glove, getTransformNodeForCoordinateFrame(glove):getChild(0), myRadius)
 	end
 	--XOR
 	if (right_hand and not left_hand) or (left_hand and not right_hand) then

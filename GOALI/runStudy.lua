@@ -30,14 +30,14 @@ function runStudy()
 
 	local osgTransforms = {
 		-- :getChild(0) is necessary because of what is returned
-		Omni = getTransformForVPSBody(omni):getChild(0),
-		Glove = getTransformForVPSBody(glove):getChild(0),
-		Red = getTransformForVPSBody(baseblock):getChild(0),
-		Yellow = getTransformForVPSBody(block1):getChild(0),
-		Green = getTransformForVPSBody(block2):getChild(0),
-		Blue = getTransformForVPSBody(block3):getChild(0),
-		Purple = getTransformForVPSBody(block4):getChild(0),
-		Teal = getTransformForVPSBody(block5):getChild(0),
+		Omni = getTransformNodeForCoordinateFrame(omni):getChild(0),
+		Glove = getTransformNodeForCoordinateFrame(glove):getChild(0),
+		Red = getTransformNodeForCoordinateFrame(baseblock):getChild(0),
+		Yellow = getTransformNodeForCoordinateFrame(block1):getChild(0),
+		Green = getTransformNodeForCoordinateFrame(block2):getChild(0),
+		Blue = getTransformNodeForCoordinateFrame(block3):getChild(0),
+		Purple = getTransformNodeForCoordinateFrame(block4):getChild(0),
+		Teal = getTransformNodeForCoordinateFrame(block5):getChild(0),
 	}
 
 	local totalTime = 0
