@@ -34,12 +34,12 @@ tracker = gadget.PositionInterface("HandTargetProxy")
 updateTranslate = function(vec)
 	local newTranslation = tracker.position + vec
 	print(("\nupdateTranslate(Vec(%f, %f, %f)) called: net translation applied is (%f, %f, %f)"):format(
+		vec:x(),
+		vec:y(),
+		vec:z(),
 		newTranslation:x(),
 		newTranslation:y(),
-		newTranslation:z(),
-		tracker.position:x(),
-		tracker.position:y(),
-		tracker.position:z()))
+		newTranslation:z()))
 	simulation:runFunctionWithSimulationPaused(
 		function()
 			xlatemanip:setTranslation(newTranslation)
