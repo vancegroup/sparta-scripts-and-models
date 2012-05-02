@@ -3,27 +3,27 @@ require("getScriptFilename")
 vrjLua.appendToModelSearchPath(getScriptFilename())
 
 Red = Transform{
-	Model([[ive\Block1.ive]])
+	Model([[..\Models\ive\Block1.ive]])
 }
 
 Blue = Transform{
-	Model([[ive\Block2.ive]])
+	Model([[..\Models\ive\Block2.ive]])
 }
 
 LightBlue = Transform{
-	Model([[ive\Block3.ive]])
+	Model([[..\Models\ive\Block3.ive]])
 }
 
 Purple = Transform{
-	Model([[ive\Block4.ive]])
+	Model([[..\Models\ive\Block4.ive]])
 }
 	
 Green = Transform{
-	Model([[ive\Block5.ive]])
+	Model([[..\Models\ive\Block5.ive]])
 }
 	
 Yellow = Transform{
-	Model([[ive\Block6.ive]])
+	Model([[..\Models\ive\Block6.ive]])
 }
 	
 RelativeTo.World:addChild(Red)
