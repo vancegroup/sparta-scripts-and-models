@@ -101,7 +101,7 @@ if handedness == "right" then
 	}
 	omni = translateManipulator{
 		manip,
-		translation = {0.6, 1.0, -0.5}
+		translation = {0.8, 1.0, -0.5}
 	}
 	addManipulator(omni)
 	glove = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
