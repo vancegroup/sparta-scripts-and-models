@@ -60,7 +60,7 @@ pieceRed = Transform{
 		Model ([[V:\Applications\vancegroup\GOALI\Burr\BaseBlock.ive]])
 	}
 }
-local pos = {0.8, -0.453, -0.5}
+local pos = {0.85, -0.6453, -0.5}
 deltaX = .25
 deltaY = -.9
 deltaZ = .12
@@ -101,16 +101,21 @@ red = addObject{
 	pieceRed,
 }
 
-addAttractorForce{body1 = green, body2 = yellow, forceDist = .2, snapDist = .025, stiff = 250, }
-addAttractorForce{body1 = blue, body2 = yellow, forceDist = .2, snapDist = .025, stiff = 250, }
-addAttractorForce{body1 = blue, body2 = purple, forceDist = .2, snapDist = .025, stiff = 250, }
-addAttractorForce{body1 = red, body2 = yellow, forceDist = .2, snapDist = .025, stiff = 250, }
-addAttractorForce{body1 = teal, body2 = yellow, forceDist = .2, snapDist = .025, stiff = 250, }
-
+AttractorGroup{
+	red,
+	blue,
+	yellow, 
+	purple,
+	teal,
+	green,
+	forceDist = .2, 
+	snapDist = .025, 
+	stiff = 250
+}
 
 
 omni = Manipulators.Sensable.PhantomOmni{
-	name = "Omni1",
+	name = "Omni2",
 	forces = true,
 	scale = 8.0,
 }

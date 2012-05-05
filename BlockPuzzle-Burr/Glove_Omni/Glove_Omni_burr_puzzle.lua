@@ -83,7 +83,7 @@ if handedness == "left" then
 	manip = Manipulators.Sensable.PhantomOmni{
 		name = "Omni1",
 		forces = true,
-		scale = 8.0
+		scale = 3.0
 	}
 	omni = translateManipulator{
 		manip,
@@ -97,11 +97,11 @@ if handedness == "right" then
 	manip = Manipulators.Sensable.PhantomOmni{
 		name = "Omni2",
 		forces = true,
-		scale = 8.0
+		scale = 3.0
 	}
 	omni = translateManipulator{
 		manip,
-		translation = {0.6, 1.0, -0.5}
+		translation = {0.8, 1.0, -0.5}
 	}
 	addManipulator(omni)
 	glove = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
