@@ -1,5 +1,7 @@
 LUACOLORS README
 
+View Colors at: http://www.procato.com/rgb+index/
+
 LuaColors is a python script which reads in a text file with the following format:
 
 r g b index colorname
