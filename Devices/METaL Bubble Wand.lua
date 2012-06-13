@@ -9,6 +9,7 @@ bubble = BubbleTechnique{
 	elasticForce = true,
 	deviceCenter = {2, 1.5, 1.5},
 	showBubble = true,
+	lockedToFloor = true,
 	navigate = {true, false, true} -- navigate in x and z only
 }
 addManipulator(bubble)
