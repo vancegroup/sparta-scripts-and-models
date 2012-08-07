@@ -1,19 +1,21 @@
 nav = Navigation()
 
+virtuose = Manipulators.Haption.Virtuose6D3545{
+	ipaddress = "192.168.1.13",
+	scale = 1.0,
+	hardwareForceScale = 1.0,
+	torqueScale = 1.0,
+	forces = true,
+	indexType = "INDEXING_NONE"
+}
+
 bubble = BubbleNav{
 	bubble = TranslationalBubble(
 		0.22, --radius
 		150, -- stiffness
 		1, -- velocity scale
 		TranslationalBubble.PeakRingVelocity),
-	manipulator = Manipulators.Haption.Virtuose6D3545{
-		ipaddress = "192.168.1.13",
-		scale = 1.0,
-		hardwareForceScale = 1.0,
-		torqueScale = 1.0,
-		forces = true,
-		indexType = "INDEXING_NONE"
-	},
+	manipulator = virtuose,
 	position = {0.0, 0.0, 0.0}, -- starting position for bubble
 	elasticForce = true,
 	deviceCenter = {0, 0.01678, 0.6},
@@ -23,6 +25,7 @@ bubble = BubbleNav{
 	navigator = nav,
 	lockedToFloor = true
 }
+
 xlatemanip = translateManipulator{
 	nav:transformManipulator(bubble),
 	translation = {0,0,0}
@@ -48,3 +51,11 @@ updateTranslate = function(vec)
 end
 
 updateTranslate(Vec(0, 0.75, 0.3))
+
+showDeviceData = function()
+	print("Haption Virtuose device debug data:")
+	print(virtuose.debugData)
+	print("User present:", virtuose.userPresent)
+end
+
+print "Call showDeviceData to show debugging information on the Virtuose device."
