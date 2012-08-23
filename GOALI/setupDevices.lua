@@ -1,4 +1,4 @@
---Use handedness that was passed in as a paramter in the launcher
+--Use handedness that was passed in as a parameter in the launcher
 
 --Glove in right, Omni in left
 if (domHand == "left") then
