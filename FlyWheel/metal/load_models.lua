@@ -1,12 +1,21 @@
 require("getScriptFilename")
 vrjLua.appendToModelSearchPath(getScriptFilename())
 
+params = defineSimulationParameters{
+	--This is a good parameter for the omnis
+	maxStiffness = 300.0,
+	parts = 4
+}
+
+wand = Manipulators.Gadgeteer.Wand{position = "VJWand"}
+addManipulator(wand)
+
 --Load in models
 voxSize = 0.003
 densitySize = 20
 scaleSize = 1.0
 
-local pos = {0.8, 0.9, -0.5}
+local pos = {2.2, 0.9, 0.75}
 
 pieceone = addObject{
 	voxelsize = voxSize,
