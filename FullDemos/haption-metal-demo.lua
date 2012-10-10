@@ -1,14 +1,5 @@
-require("getScriptFilename")
-vrjLua.appendToModelSearchPath(getScriptFilename())
-function runfile(fn)
-	local fullpath = vrjLua.findInModelSearchPath(fn)
-	if fullpath ~= "" then
-		print([[Running "]] .. fullpath .. [["...]])
-		dofile(fullpath)
-	else
-		error("Couldn't find " .. fn .. " in model search path!", 2)
-	end
-end
+require "AddAppDirectory"
+AddAppDirectory()
 
 -- Scale huge for the video
 --relativeScale = 1.0
