@@ -50,7 +50,7 @@ updateTranslate = function(vec)
 	)
 end
 
-updateTranslate(Vec(0, 0.75, 0.3))
+updateTranslate(Vec(0, 0.5, 0.3))
 
 showDeviceData = function()
 	print("Haption Virtuose device debug data:")
