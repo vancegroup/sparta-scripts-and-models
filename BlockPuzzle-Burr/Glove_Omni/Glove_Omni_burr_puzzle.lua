@@ -16,7 +16,7 @@ switchToMinimalRoom()
 
 baseblock = addObject{
 	voxelsize = voxSize,
-	position = {0.05, 0.9, -0.5},
+	position = {0.05, 0.8, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
@@ -25,7 +25,7 @@ baseblock = addObject{
 }
 block1 = addObject{
 	voxelsize = voxSize,
-	position = {0.35, 0.9, -0.5},
+	position = {0.35, 0.8, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
@@ -34,7 +34,7 @@ block1 = addObject{
 }
 block2 = addObject{
 	voxelsize = voxSize,
-	position = {0.65, 0.9, -0.5},
+	position = {0.65, 0.8, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
@@ -43,7 +43,7 @@ block2 = addObject{
 }
 block3 = addObject{
 	voxelsize = voxSize,
-	position = {0.05, 1.3, -0.5},
+	position = {0.05, 1.0, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
@@ -52,7 +52,7 @@ block3 = addObject{
 }
 block4 = addObject{
 	voxelsize = voxSize,
-	position = {0.35, 1.3, -0.5},
+	position = {0.35, 1.0, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
@@ -61,7 +61,7 @@ block4 = addObject{
 }
 block5 = addObject{
 	voxelsize = voxSize,
-	position = {0.65, 1.3, -0.5},
+	position = {0.65, 1.0, -0.5},
 	density = densitySize,
 	Transform{
 		scale = scaleSize,
