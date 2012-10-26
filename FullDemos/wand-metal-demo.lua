@@ -13,6 +13,8 @@ partDensity = 20 / relativeScale
 
 runfile("../simparams.lua")
 runfile("../UBracket/bracket_models.lua")
-runfile("../Devices/METaL Bubble Wand.lua")
+runfile("../Devices/METaL Bubble Wand Pauseable.lua")
+runfile("../CarpetRingNav/wmbutton1-toggles-nav.lua")
+setNavIndicatorPos(Vec(2.25, 1.5))
 runfile("../homebutton-toggles-bubble.lua")
 runfile("../start-sim.lua")
