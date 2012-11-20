@@ -1,7 +1,7 @@
 if handedness == "right" then
 	manip = Manipulators.Sensable.PhantomOmni{
 		name = "Omni2",
-		forces = false,
+		forces = true,
 		scale = 8.0
 	}
 	right = translateManipulator{
@@ -19,7 +19,7 @@ if handedness == "right" then
 else
 	manip = Manipulators.Sensable.PhantomOmni{
 		name = "Omni1",
-		forces = false,
+		forces = true,
 		scale = 8.0
 	}
 	left = translateManipulator{
