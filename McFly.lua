@@ -30,6 +30,7 @@ function McFlyIndex:savePoint()
 		SP[v] = v.matrix
 	end
 	table.insert(self.matrixStack,1,SP)
+	print("added to stack, now size is "..#self.matrixStack)
 end
 
 function McFlyIndex:reset()
@@ -38,21 +39,26 @@ function McFlyIndex:reset()
 		v.matrix = mats[v]
 	end
 	self.matrixStack = {}
+	self:savePoint()
+	print("reset now stack size is "..#self.matrixStack)
 end
 
 function McFlyIndex:goBack(steps)
-	assert(steps < 1 or steps > #self.matrixStack, "Invalid steps back..")
-	mats = self.matrixStack[steps]
+	assert(steps > 0 , "Invalid steps back steps must be over 0")
+	assert(steps < #self.matrixStack, "Invalid steps back no where to go")
+	mats = self.matrixStack[steps+1]
 	for i,v in ipairs(self.parts) do
 		v.matrix = mats[v]
 	end
+	print("matrixStackSize b4 goback: "..#self.matrixStack)
 	self.matrixStack = table_slice(self.matrixStack,steps+1,#self.matrixStack)
+	print("matrixStackSize after goback: "..#self.matrixStack)
 end
 
 McFly = function(args)
+	setmetatable(args, MFMT)
 	assert(args.parts, "must supply parts to track in time!")
 	args.matrixStack = {}
 	args:savePoint()
-	setmetatable(args, MFMT)
-	return parts
+	return args
 end
