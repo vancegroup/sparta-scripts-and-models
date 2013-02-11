@@ -8,7 +8,7 @@ virtuose = Manipulators.Haption.Virtuose6D3545{
 }
 
 
-remote = VRPNRemoteBase(virtuose, 0, 0.6, "Robot@localhost")
+remote = VRPNRemoteBase(virtuose, 0, 0.55, "Robot@localhost")
 
 -- you can run the following command (and similar ones) to change the computer-side gain at runtime.
 remote.gain = 1
