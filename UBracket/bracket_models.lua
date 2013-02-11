@@ -1,11 +1,12 @@
-
+bracketModelScale = 0.3
+partDensity = 40
 -- acceptable for a stiffness of 300 N/m
 partDensity = partDensity or 20
 voxSize = 0.003
 bracketModelScale = bracketModelScale or 0.6
 ubracket = addObject{
 	voxelsize = voxSize,
-	position = {0.0, 0.7, -0.5},
+	position = {0.5, 1.3, 1.5},
 	density = partDensity,
 	Transform{
 		Model("models/ry189181-2/UBracket_0.jt.osg"),
@@ -27,7 +28,7 @@ flange = addObject{
 
 handle = addObject{
 	voxelsize = voxSize,
-	position = {0.4, 0.7, -0.5},
+	position = {0.9, 1.3, 1.5},
 	density = partDensity,
 	Transform{
 		Model("models/ry189181-2/Handle_2.jt.osg"),
@@ -37,7 +38,7 @@ handle = addObject{
 
 rod = addObject{
 	voxelsize = voxSize,
-	position = {0.7, 0.7, -0.5},
+	position = {1.2, 1.3, 1.5},
 	density = partDensity,
 	Transform{
 		Model("models/ry189181-2/Rod_3.jt.osg"),
