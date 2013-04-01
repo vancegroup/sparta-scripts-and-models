@@ -7,6 +7,14 @@ params = defineSimulationParameters{
 	parts = 6
 }
 
+function runfile(fn)
+	dofile(vrjLua.findInModelSearchPath(fn))
+end
+
+--Takes two arguments:
+--handedness = "left" or "right"
+--devices = "dualomni" or "gloveomni"
+
 --Load in models
 voxSize = 0.003
 densitySize = 20
@@ -69,48 +77,7 @@ block5 = addObject{
 	}
 }
 
---Use handedness that was passed in as a parameter in the launcher
-
---Glove in right, Omni in left
-if handedness == "left" then
-	glove = Manipulators.Gadgeteer.Glove{position = "RightGlove",
-		options = "USB0",
-		hardware = "GloveHardware5DT",
-		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
-		calibFile = "assets/calibrations/calib-right-5dt.txt",
-	}
-	addManipulator(glove)
-	manip = Manipulators.Sensable.PhantomOmni{
-		name = "Omni1",
-		forces = true,
-		scale = 3.0
-	}
-	omni = translateManipulator{
-		manip,
-		translation = {0.0, 1.0, -0.5}
-	}
-	addManipulator(omni)
-end
-
---Omni in right, Glove in left
-if handedness == "right" then
-	manip = Manipulators.Sensable.PhantomOmni{
-		name = "Omni2",
-		forces = true,
-		scale = 3.0
-	}
-	omni = translateManipulator{
-		manip,
-		translation = {0.5, 1.0, -0.5}
-	}
-	addManipulator(omni)
-	glove = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
-		options = "USB1",
-		hardware = "GloveHardware5DT",
-		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
-		calibFile = "assets/calibrations/calib-left-5dt.txt",
-	}
-	addManipulator(glove)
-end
+--setup devices based on parameters
+runfile("devices.lua")
 
 simulation:startInSchedulerThread()
