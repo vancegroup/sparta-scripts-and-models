@@ -61,27 +61,22 @@ TransXform:addChild(button_Switch)
 local trans_switch = osg.Switch()
 trans_switch:addChild(button_Switch)
 trans_switch:addChild(TransXform)
-trans_switch:setValue(0, true)
-trans_switch:setValue(1, false)
+trans_switch:setSingleChildOn(0)
 
 function setButtonTransparencyON()
-	trans_switch:setValue(1, true)
-	trans_switch:setValue(0, false)
+	trans_switch:setSingleChildOn(1)
 end
 
 function setButtonTransparencyOFF()
-	trans_switch:setValue(1, false)
-	trans_switch:setValue(0, true)
+	trans_switch:setSingleChildOn(0)
 end
 
 function setButtonModelON()
-	button_Switch:setValue(1, true)
-	button_Switch:setValue(0, false)
+	button_Switch:setSingleChildOn(1)
 end
 
 function setButtonModelOFF()
-	button_Switch:setValue(1, false)
-	button_Switch:setValue(0, true)
+	button_Switch:setSingleChildOn(0)
 end
 
 
