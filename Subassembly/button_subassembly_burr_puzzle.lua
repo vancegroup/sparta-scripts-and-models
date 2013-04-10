@@ -95,7 +95,7 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
 	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 	if distance < radius then
 		setButtonTransparencyON()
-		if right:getButtonState(1) and lastButtonState2 == false then
+		if manip:getButtonState(1) and lastButtonState2 == false then
 			if buttonstate == "OFF" then
 				buttonstate = "ON"
 				setButtonModelON()
@@ -119,7 +119,6 @@ function gloveDistCheck(buttonXForm, manip, manip_osg, radius)
 	if distance < radius then
 		setButtonTransparencyON()
 		if gloveInProximity == false then
-
 			gloveInProximity = true
 		end
 		return false
@@ -143,10 +142,22 @@ end
 
 local myRadius = buttonXForm:computeBound():radius()
 function UserEnterExit()
-	local omni = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
-	local glove = gloveDistCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
+	local rightdevice = nil
+	local leftdevice = nil
+	if devices == "gloveomni" then
+		if handedness == "right" then
+			rightdevice = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
+			leftdevice = gloveDistCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
+		elseif handedness == "left" then
+			rightdevice = gloveDistCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
+			leftdevice = buttonDistanceCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
+		end
+	elseif devices == "dualomni" then
+		rightdevice = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
+		leftdevice = buttonDistanceCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
+	end
 	--XOR
-	if (omni and not glove) or (glove and not omni) then
+	if (rightdevice and not leftdevice) or (leftdevice and not rightdevice) then
 		return true
 	else
 		return false
@@ -154,18 +165,20 @@ function UserEnterExit()
 end
 
 local lastButtonState = false
-function UserAddRemove()
-	if right:getButtonState(1) and right.hovering and lastButtonState == false then
-		lastButtonState = true
-		return right:getHover()
-	elseif not right:getButtonState(1) then
-		lastButtonState = false
-		return false
-	else
-		return false
+function UserAddRemove(manip)
+	local function f()
+		if manip:getButtonState(1) and manip.hovering and lastButtonState == false then
+			lastButtonState = true
+			return manip:getHover()
+		elseif not manip:getButtonState(1) then
+			lastButtonState = false
+			return false
+		else
+			return false
+		end
 	end
+	return f
 end
-
 
 --This defines graphically what will change when items
 --are added/removed from the subassembly.
@@ -173,6 +186,10 @@ local GraphicsNode = osgFX.Scribe()
 GraphicsNode:setWireframeLineWidth(20)
 
 --begin subassembly
-StartSubassembly(UserEnterExit, UserAddRemove, GraphicsNode)
+if handedness == "right" then
+	StartSubassembly(UserEnterExit, UserAddRemove(right), GraphicsNode)
+else
+	StartSubassembly(UserEnterExit, UserAddRemove(left), GraphicsNode)
+end
 
 simulation:startInSchedulerThread()
