@@ -91,25 +91,50 @@ local lastButtonState2 = false
 local gloveInProximity = false
 buttonstate = "OFF"
 
-function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
+function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, manip2_osg)
+	--manip2 and manip2_osg are optional parameters for a second omni device
 	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
-	if distance < radius then
-		setButtonTransparencyON()
-		if manip:getButtonState(1) and lastButtonState2 == false then
-			if buttonstate == "OFF" then
-				buttonstate = "ON"
-				setButtonModelON()
-			else
-				buttonstate = "OFF"
-				setButtonModelOFF()
+
+	if (manip2 ~= nil and manip2_osg ~= nil) then
+		local distance2 = (manip2_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+
+		if (distance < radius and distance2 > radius) or (distance > radius and distance2 < radius) then
+			setButtonTransparencyON()
+			if (manip:getButtonState(1) or manip2:getButtonState(1)) and lastButtonState2 == false then
+				if buttonstate == "OFF" then
+					buttonstate = "ON"
+					setButtonModelON()
+				else
+					buttonstate = "OFF"
+					setButtonModelOFF()
+				end
+				lastButtonState2 = true
+				return true
 			end
-			lastButtonState2 = true
-			return true
+		else
+			setButtonTransparencyOFF()
+			return false
 		end
 	else
-		setButtonTransparencyOFF()
-		return false
+		if distance < radius then
+			setButtonTransparencyON()
+			if manip:getButtonState(1) and lastButtonState2 == false then
+				if buttonstate == "OFF" then
+					buttonstate = "ON"
+					setButtonModelON()
+				else
+					buttonstate = "OFF"
+					setButtonModelOFF()
+				end
+				lastButtonState2 = true
+				return true
+			end
+		else
+			setButtonTransparencyOFF()
+			return false
+		end
 	end
+
 	lastButtonState2 = false
 	return false
 end
@@ -153,8 +178,7 @@ function UserEnterExit()
 			leftdevice = buttonDistanceCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
 		end
 	elseif devices == "dualomni" then
-		rightdevice = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius)
-		leftdevice = buttonDistanceCheck(buttonXForm, left, getTransformNodeForCoordinateFrame(left):getChild(0), myRadius)
+		rightdevice = buttonDistanceCheck(buttonXForm, right, getTransformNodeForCoordinateFrame(right):getChild(0), myRadius, left, getTransformNodeForCoordinateFrame(left):getChild(0))
 	end
 	--XOR
 	if (rightdevice and not leftdevice) or (leftdevice and not rightdevice) then
@@ -164,8 +188,10 @@ function UserEnterExit()
 	end
 end
 
-local lastButtonState = false
-function UserAddRemove(manip)
+--this ensures that the button doesn't toggle between on and off repeatedly bassed on the frame checks
+local lastButtonState1 = false
+local lastButtonState2 = false
+function UserAddRemove(manip,lastButtonState)
 	local function f()
 		if manip:getButtonState(1) and manip.hovering and lastButtonState == false then
 			lastButtonState = true
@@ -180,6 +206,15 @@ function UserAddRemove(manip)
 	return f
 end
 
+function UserAddRemove2(manip1,manip2)
+	function1 = UserAddRemove(manip1,lastButtonState1)
+	function2 = UserAddRemove(manip2,lastButtonState2)
+	local function f()
+		return function1() or function2()
+	end
+	return f
+end
+
 --This defines graphically what will change when items
 --are added/removed from the subassembly.
 local GraphicsNode = osgFX.Scribe()
@@ -187,9 +222,11 @@ GraphicsNode:setWireframeLineWidth(20)
 
 --begin subassembly
 if handedness == "right" then
-	StartSubassembly(UserEnterExit, UserAddRemove(right), GraphicsNode)
-else
-	StartSubassembly(UserEnterExit, UserAddRemove(left), GraphicsNode)
+	StartSubassembly(UserEnterExit, UserAddRemove(right,lastButtonState1), GraphicsNode)
+elseif handedness == "left" then
+	StartSubassembly(UserEnterExit, UserAddRemove(left,lastButtonState1), GraphicsNode)
+elseif devices == "dualomni" then
+	StartSubassembly(UserEnterExit, UserAddRemove2(right, left), GraphicsNode)
 end
 
 simulation:startInSchedulerThread()
