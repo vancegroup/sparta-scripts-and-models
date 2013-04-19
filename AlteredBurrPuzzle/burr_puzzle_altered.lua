@@ -19,41 +19,41 @@ local function changeTransformColor(xform, color)
 end
 
 
-local scale = 5.0
+local scale = 4.0
 
 Red = Transform{
 	scale = scale,
-	Model([[../models/Part1.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part1.osg]]))
 }
 changeTransformColor(Red,{153/255,0/255,0/255})
 
 Blue = Transform{
 	scale = scale,
-	Model([[../models/Part2.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part2.osg]]))
 }
 changeTransformColor(Blue,{0/255,0/255,204/255})
 
 LightBlue = Transform{
 	scale = scale,
-	Model([[../models/Part3.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part3.osg]]))
 }
 changeTransformColor(LightBlue,{0/255,153/255,153/255})
 
 Purple = Transform{
 	scale = scale,
-	Model([[../models/Part4.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part4.osg]]))
 }
 changeTransformColor(Purple,{76/255,0/255,153/255})
 
 Green = Transform{
 	scale = scale,
-	Model([[../models/Part5.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part5.osg]]))
 }
 changeTransformColor(Green,{0/255,153/255,0/255})
 
 Yellow = Transform{
 	scale = scale,
-	Model([[../models/Part6.osg]])
+	Model(vrjLua.findInModelSearchPath([[models/Part6.osg]]))
 }
 changeTransformColor(Yellow,{204/255,204/255,0/255})
 
