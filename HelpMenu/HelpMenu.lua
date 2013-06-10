@@ -1,5 +1,7 @@
 require "Actions"
 require "gldef"
+require("getScriptFilename")
+vrjLua.appendToModelSearchPath(getScriptFilename())
 
 local wiihelp = Transform{
 	position={0,1.3,0},
