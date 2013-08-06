@@ -28,30 +28,17 @@ bubble = BubbleNav{
 }
 
 xlatemanip = translateManipulator{
-	nav:transformManipulator(bubble),
-	translation = {0,0,0}
+	TrackedTransform(
+		nav:transformManipulator(bubble),
+		"HandTargetProxy",
+		false
+	),
+	translation = {0, 0.5, 0.3}
 }
 addManipulator(xlatemanip)
 
-tracker = gadget.PositionInterface("HandTargetProxy")
 
-updateTranslate = function(vec)
-	local newTranslation = tracker.position + vec
-	print(("\nupdateTranslate(Vec(%f, %f, %f)) called: net translation applied is (%f, %f, %f)"):format(
-		vec:x(),
-		vec:y(),
-		vec:z(),
-		newTranslation:x(),
-		newTranslation:y(),
-		newTranslation:z()))
-	simulation:runFunctionWithSimulationPaused(
-		function()
-			xlatemanip:setTranslation(newTranslation)
-		end
-	)
-end
 
-updateTranslate(Vec(0, 0.5, 0.3))
 
 showDeviceData = function()
 	print("Haption Virtuose device debug data:")
