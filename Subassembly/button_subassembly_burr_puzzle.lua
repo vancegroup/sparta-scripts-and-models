@@ -222,11 +222,29 @@ GraphicsNode:setWireframeLineWidth(20)
 
 --begin subassembly
 if handedness == "right" then
-	StartSubassembly(UserEnterExit, UserAddRemove(right,lastButtonState1), GraphicsNode)
+
+	sub = Subassembly{
+		EnterExitFunc = UserEnterExit,
+		AddRemoveFunc = UserAddRemove(right,lastButtonState1),
+		graphics_node = GraphicsNode
+	}
+
 elseif handedness == "left" then
-	StartSubassembly(UserEnterExit, UserAddRemove(left,lastButtonState1), GraphicsNode)
+
+	sub = Subassembly{
+		EnterExitFunc = UserEnterExit,
+		AddRemoveFunc = UserAddRemove(left,lastButtonState1),
+		graphics_node = GraphicsNode
+	}
+
 elseif devices == "dualomni" then
-	StartSubassembly(UserEnterExit, UserAddRemove2(right, left), GraphicsNode)
+
+	sub = Subassembly{
+		EnterExitFunc = UserEnterExit,
+		AddRemoveFunc = UserAddRemove2(right, left),
+		graphics_node = GraphicsNode
+	}
+
 end
 
 simulation:startInSchedulerThread()

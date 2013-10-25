@@ -44,6 +44,10 @@ end
 local GraphicsNode = osgFX.Scribe()
 GraphicsNode:setWireframeLineWidth(20)
 
-StartSubassembly(UserEnterExit, UserAddRemove, GraphicsNode)
+sub = Subassembly{
+	EnterExitFunc = UserEnterExit,
+	AddRemoveFunc = UserAddRemove,
+	graphics_node = GraphicsNode
+}
 
 simulation:startInSchedulerThread()
