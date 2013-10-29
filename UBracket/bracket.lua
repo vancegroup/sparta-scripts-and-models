@@ -11,6 +11,4 @@ end
 
 runfile("bracket_models.lua")
 
-runfile(".././Devices/Glove_Omni.lua")
-
 simulation:startInSchedulerThread()

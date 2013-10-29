@@ -12,7 +12,6 @@ function runfile(fn)
 end
 
 runfile("Load_Models.lua")
-runfile("Setup_Devices.lua")
 
 
 simulation:startInSchedulerThread()

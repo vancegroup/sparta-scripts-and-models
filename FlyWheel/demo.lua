@@ -14,44 +14,42 @@ end
 require("Actions")
 
 -- Pick the button for switching
-startBtn = gadget.DigitalInterface("VJButton0")
+-- startBtn = gadget.DigitalInterface("VJButton0")
 
 --load in pieces
 runfile("load_models.lua")
---add device functions
-runfile("setup_devices.lua")
 
-function turnOffForces()
-	if handedness == "right" then
-		right.forces = false
-	else
-		left.forces = false
-	end
-end
+-- function turnOffForces()
+	-- if handedness == "right" then
+		-- right.forces = false
+	-- else
+		-- left.forces = false
+	-- end
+-- end
 
-function turnOnForces()
-	if handedness == "right" then
-		right.forces = true
-	else
-		left.forces = true
-	end
-end
+-- function turnOnForces()
+	-- if handedness == "right" then
+		-- right.forces = true
+	-- else
+		-- left.forces = true
+	-- end
+-- end
 
-Actions.addFrameAction(
-	function(dt)
-		while true do
-			--haptics off
-			simulation:runFunctionWithSimulationPaused(turnOffForces)
-			repeat
-				Actions.waitForRedraw()
-			until startBtn.justPressed
-			simulation:runFunctionWithSimulationPaused(turnOnForces)
-			--haptics on
-			repeat
-				Actions.waitForRedraw()
-			until startBtn.justPressed
-		end
-	end
-)--End action
+-- Actions.addFrameAction(
+	-- function(dt)
+		-- while true do
+			----haptics off
+			-- simulation:runFunctionWithSimulationPaused(turnOffForces)
+			-- repeat
+				-- Actions.waitForRedraw()
+			-- until startBtn.justPressed
+			-- simulation:runFunctionWithSimulationPaused(turnOnForces)
+			----haptics on
+			-- repeat
+				-- Actions.waitForRedraw()
+			-- until startBtn.justPressed
+		-- end
+	-- end
+-- )--End action
 
 simulation:startInSchedulerThread()

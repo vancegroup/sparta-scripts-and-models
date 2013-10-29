@@ -77,7 +77,4 @@ block5 = addObject{
 	}
 }
 
---setup devices based on parameters
-runfile("devices.lua")
-
 simulation:startInSchedulerThread()
