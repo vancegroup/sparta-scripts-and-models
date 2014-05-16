@@ -50,6 +50,11 @@ if devices == "dualomni" then
 	leftOmni()
 end
 
+if devices == "dualglove" then
+	rightGlove()
+	leftGlove()
+end
+
 if handedness == "left" then
 	if devices == "gloveomni" then
 		--Glove in right, Omni in left
