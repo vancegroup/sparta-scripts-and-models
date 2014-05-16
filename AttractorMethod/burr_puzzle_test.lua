@@ -1,5 +1,7 @@
-require("getScriptFilename")
-vrjLua.appendToModelSearchPath(getScriptFilename())
+-- require("getScriptFilename")
+-- vrjLua.appendToModelSearchPath(getScriptFilename())
+require "AddAppDirectory"
+AddAppDirectory()
 params = defineSimulationParameters{
 	maxStiffness = 300.0
 }
@@ -14,27 +16,27 @@ local scale = 5.0
 --as well as in an assembled state.
 Red = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block1.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block1.ive")
 }
 Blue = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block2.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block2.ive")
 }
 LightBlue = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block3.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block3.ive")
 }
 Purple = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block4.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block4.ive")
 }
 Green = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block5.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block5.ive")
 }
 Yellow = Transform{
 	scale = scale,
-	Model([[V:\Applications\vancegroup\GOALI\Burr2\Block6.ive]])
+	Model("../BlockPuzzle-Burr/Models/ive/Block6.ive")
 }
 
 local pos = {.3, .8, -.5}
