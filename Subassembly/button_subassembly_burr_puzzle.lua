@@ -86,10 +86,11 @@ local buttonXForm = Transform{
 }
 RelativeTo.World:addChild(buttonXForm)
 
-
+local lastButtonState1 = false
 local lastButtonState2 = false
+local lastButtonState3 = false
 local gloveInProximity = false
-buttonstate = "OFF"
+local buttonstate = "OFF"
 
 function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, manip2_osg)
 	--manip2 and manip2_osg are optional parameters for a second omni device
@@ -128,15 +129,17 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, mani
 				end
 				lastButtonState2 = true
 				return true
+			elseif not manip:getButtonState(1) and lastButtonState2 == true then
+				lastButtonState2 = false
+				return false
+			else
+				return false
 			end
 		else
 			setButtonTransparencyOFF()
 			return false
 		end
 	end
-
-	lastButtonState2 = false
-	return false
 end
 
 function gloveDistCheck(buttonXForm, manip, manip_osg, radius)
@@ -188,19 +191,18 @@ function UserEnterExit()
 	end
 end
 
---this ensures that the button doesn't toggle between on and off repeatedly bassed on the frame checks
-local lastButtonState1 = false
-local lastButtonState2 = false
+--this ensures that the button doesn't toggle between on and off repeatedly based on the frame checks
+
 function UserAddRemove(manip,lastButtonState)
 	local function f()
-		if manip:getButtonState(1) and manip.hovering and lastButtonState == false then
-			lastButtonState = true
+		if manip:getButtonState(1) and manip.hovering and lastButtonState3 == false then
+			lastButtonState3 = true
 			return manip:getHover()
 		elseif not manip:getButtonState(1) then
-			lastButtonState = false
-			return false
+			lastButtonState3 = false
+			return nil
 		else
-			return false
+			return nil
 		end
 	end
 	return f
@@ -220,12 +222,13 @@ end
 local GraphicsNode = osgFX.Scribe()
 GraphicsNode:setWireframeLineWidth(20)
 
+
 --begin subassembly
 if handedness == "right" then
 
 	sub = Subassembly{
 		EnterExitFunc = UserEnterExit,
-		AddRemoveFunc = UserAddRemove(right,lastButtonState1),
+		AddRemoveFunc = UserAddRemove(right,lastButtonState3),
 		graphics_node = GraphicsNode
 	}
 
