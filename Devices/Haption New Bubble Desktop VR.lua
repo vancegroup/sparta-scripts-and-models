@@ -1,5 +1,5 @@
 
-haption = Manipulators.Haption.Virtuose6D3545{
+haption = Devices.Haption.Virtuose6D3545{
 	ipaddress = "192.168.1.13",
 	scale = 1.0,
 	hardwareForceScale = 1.0,

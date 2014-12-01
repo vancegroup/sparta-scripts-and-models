@@ -1,7 +1,7 @@
 --Left Glove - Right Omni
 
 
-local left = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
+local left = Devices.Gadgeteer.Glove{position = "LeftGlove",
 	options = "USB1",
 	hardware = "GloveHardware5DT",
 	reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
@@ -10,7 +10,7 @@ local left = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
 addManipulator(left)
 
 
-local manip = Manipulators.Sensable.PhantomOmni{
+local manip = Devices.Sensable.PhantomOmni{
 	name = "Omni2",
 	forces = true,
 	scale = 4.0

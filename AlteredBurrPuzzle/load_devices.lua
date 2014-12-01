@@ -1,5 +1,5 @@
 function rightOmni()
-	manip = Manipulators.Sensable.PhantomOmni{
+	manip = Devices.Sensable.PhantomOmni{
 		name = "Omni2",
 		forces = true,
 		scale = 4.0
@@ -12,7 +12,7 @@ function rightOmni()
 end
 
 function leftOmni()
-	manip = Manipulators.Sensable.PhantomOmni{
+	manip = Devices.Sensable.PhantomOmni{
 		name = "Omni1",
 		forces = true,
 		scale = 4.0
@@ -25,7 +25,7 @@ function leftOmni()
 end
 
 function rightGlove()
-	right = Manipulators.Gadgeteer.Glove{position = "RightGlove",
+	right = Devices.Gadgeteer.Glove{position = "RightGlove",
 		options = "USB0",
 		hardware = "GloveHardware5DT",
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
@@ -35,7 +35,7 @@ function rightGlove()
 end
 
 function leftGlove()
-	left = Manipulators.Gadgeteer.Glove{position = "LeftGlove",
+	left = Devices.Gadgeteer.Glove{position = "LeftGlove",
 		options = "USB1",
 		hardware = "GloveHardware5DT",
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"

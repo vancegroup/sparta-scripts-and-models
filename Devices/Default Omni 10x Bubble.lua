@@ -1,5 +1,5 @@
 
-omni = Manipulators.Sensable.PhantomOmni{
+omni = Devices.Sensable.PhantomOmni{
 	forces = true,
 	scale = 10.0 -- default is 20
 }

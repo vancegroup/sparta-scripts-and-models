@@ -1,6 +1,6 @@
 nav = Navigation()
 
-wand = Manipulators.Gadgeteer.Wand{position = "VJWand"}
+wand = Devices.Gadgeteer.Wand{position = "VJWand"}
 bubble = BubbleNav{
 	bubble = TranslationalBubble(
 		1, --radius

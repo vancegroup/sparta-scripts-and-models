@@ -1,4 +1,4 @@
-virtuose = Manipulators.Haption.Virtuose6D3545{
+virtuose = Devices.Haption.Virtuose6D3545{
 	--ipaddress = "192.168.1.13",
 	ipaddress = "127.0.0.1:3131#5002",
 	scale = 1.0,

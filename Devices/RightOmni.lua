@@ -1,6 +1,6 @@
 --Right Omni
 
-local manip = Manipulators.Sensable.PhantomOmni{
+local manip = Devices.Sensable.PhantomOmni{
 	name = "Omni2",
 	forces = true,
 	scale = 4.0

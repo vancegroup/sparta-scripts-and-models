@@ -7,7 +7,7 @@ params = defineSimulationParameters{
 	parts = 4
 }
 
-wand = Manipulators.Gadgeteer.Wand{position = "VJWand"}
+wand = Devices.Gadgeteer.Wand{position = "VJWand"}
 addManipulator(wand)
 
 --Load in models

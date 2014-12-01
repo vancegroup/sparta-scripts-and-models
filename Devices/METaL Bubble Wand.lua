@@ -1,5 +1,5 @@
 
-wand = Manipulators.Gadgeteer.Wand{position = "VJWand"}
+wand = Devices.Gadgeteer.Wand{position = "VJWand"}
 bubble = BubbleTechnique{
 	manipulator = wand,
 	radius = 1, -- radius of bubble in meters
