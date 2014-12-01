@@ -1,21 +1,23 @@
 --Left Omni - Right Glove
 
-local left = Devices.Gadgeteer.Glove{position = "LeftGlove",
-	options = "USB1",
-	hardware = "GloveHardware5DT",
-	reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
-	calibFile = "assets/calibrations/calib-left-5dt.txt",
-}
-addDevice(left)
+addDevice(
+	translateDevice{
+		translation = {0.0, 1.0, -0.5},
+		Devices.Sensable.PhantomOmni{
+			name = "Omni1",
+			forces = true,
+			scale = 4.0
+		}
+	}
+)
 
 
-local dev = Devices.Sensable.PhantomOmni{
-	name = "Omni2",
-	forces = true,
-	scale = 4.0
-}
-local right = translateDevice{
-	dev,
-	translation = {0.6, 1.0, -0.5}
-}
-addDevice(right)
+addDevice(
+	Devices.Gadgeteer.Glove{
+		position = "RightGlove",
+		options = "USB0",
+		hardware = "GloveHardware5DT",
+		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
+		calibFile = "assets/calibrations/calib-right-5dt.txt",
+	}
+)
