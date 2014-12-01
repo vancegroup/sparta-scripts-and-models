@@ -19,7 +19,7 @@ tracked = TrackedTransform(
 	false
 )
 
-translated = translateManipulator{
+translated = translateDevice{
 	tracked,		
 	translation = {0, 0.5, 0.3}
 }

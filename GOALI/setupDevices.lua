@@ -14,7 +14,7 @@ if (domHand == "left") then
 		forces = true,
 		scale = 8.0
 	}
-	omni = translateManipulator{
+	omni = translateDevice{
 		manip,
 		translation = {0.0, 1.0, -0.5}
 	}
@@ -28,7 +28,7 @@ if (domHand == "right") then
 		forces = true,
 		scale = 8.0
 	}
-	omni = translateManipulator{
+	omni = translateDevice{
 		manip,
 		translation = {0.6, 1.0, -0.5}
 	}

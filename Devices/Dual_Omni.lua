@@ -5,7 +5,7 @@ local manip_one = Manipulators.Sensable.PhantomOmni{
 	forces = true,
 	scale = 4.0
 }
-local right = translateManipulator{
+local right = translateDevice{
 	manip_one,
 	translation = {0.6, 1.0, -0.5}
 }
@@ -16,7 +16,7 @@ local manip_two = Manipulators.Sensable.PhantomOmni{
 	forces = true,
 	scale = 4.0
 }
-local left = translateManipulator{
+local left = translateDevice{
 	manip_two,
 	translation = {0.0, 1.0, -0.5}
 }

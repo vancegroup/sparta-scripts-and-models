@@ -12,7 +12,7 @@ tracked = TrackedTransform(remote, "VJWand", true)
 
 --addManipulator(remote)
 addManipulator(
-	translateManipulator{
+	translateDevice{
 		tracked,
 		translation = {0.6, 1.0, -0.5}
 	}

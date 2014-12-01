@@ -27,7 +27,7 @@ bubble = BubbleNav{
 	lockedToFloor = true
 }
 
-xlatemanip = translateManipulator{
+xlatemanip = translateDevice{
 	TrackedTransform(
 		nav:transformManipulator(bubble),
 		"HandTargetProxy",

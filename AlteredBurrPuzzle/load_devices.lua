@@ -4,7 +4,7 @@ function rightOmni()
 		forces = true,
 		scale = 4.0
 	}
-	right = translateManipulator{
+	right = translateDevice{
 		manip,
 		translation = {0.6, 1.0, -0.5}
 	}
@@ -17,7 +17,7 @@ function leftOmni()
 		forces = true,
 		scale = 4.0
 	}
-	left = translateManipulator{
+	left = translateDevice{
 		manip,
 		translation = {0.0, 1.0, -0.5}
 	}
