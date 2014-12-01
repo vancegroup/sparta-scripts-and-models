@@ -8,38 +8,38 @@ if (domHand == "left") then
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-right-5dt.txt",
 	}
-	addManipulator(glove)
-	manip = Devices.Sensable.PhantomOmni{
+	addDevice(glove)
+	dev = Devices.Sensable.PhantomOmni{
 		name = "Omni1",
 		forces = true,
 		scale = 8.0
 	}
 	omni = translateDevice{
-		manip,
+		dev,
 		translation = {0.0, 1.0, -0.5}
 	}
-	addManipulator(omni)
+	addDevice(omni)
 end
 
 --Omni in right, Glove in left
 if (domHand == "right") then
-	manip = Devices.Sensable.PhantomOmni{
+	dev = Devices.Sensable.PhantomOmni{
 		name = "Omni2",
 		forces = true,
 		scale = 8.0
 	}
 	omni = translateDevice{
-		manip,
+		dev,
 		translation = {0.6, 1.0, -0.5}
 	}
-	addManipulator(omni)
+	addDevice(omni)
 	glove = Devices.Gadgeteer.Glove{position = "LeftGlove",
 		options = "USB1",
 		hardware = "GloveHardware5DT",
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-left-5dt.txt",
 	}
-	addManipulator(glove)
+	addDevice(glove)
 end
 
 function makeGloveTransparent()

@@ -1,27 +1,27 @@
 function rightOmni()
-	manip = Devices.Sensable.PhantomOmni{
+	dev = Devices.Sensable.PhantomOmni{
 		name = "Omni2",
 		forces = true,
 		scale = 4.0
 	}
 	right = translateDevice{
-		manip,
+		dev,
 		translation = {0.6, 1.0, -0.5}
 	}
-	addManipulator(right)
+	addDevice(right)
 end
 
 function leftOmni()
-	manip = Devices.Sensable.PhantomOmni{
+	dev = Devices.Sensable.PhantomOmni{
 		name = "Omni1",
 		forces = true,
 		scale = 4.0
 	}
 	left = translateDevice{
-		manip,
+		dev,
 		translation = {0.0, 1.0, -0.5}
 	}
-	addManipulator(left)
+	addDevice(left)
 end
 
 function rightGlove()
@@ -31,7 +31,7 @@ function rightGlove()
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-right-5dt.txt",
 	}
-	addManipulator(right)
+	addDevice(right)
 end
 
 function leftGlove()
@@ -41,7 +41,7 @@ function leftGlove()
 		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 		calibFile = "assets/calibrations/calib-left-5dt.txt",
 	}
-	addManipulator(left)
+	addDevice(left)
 end
 
 

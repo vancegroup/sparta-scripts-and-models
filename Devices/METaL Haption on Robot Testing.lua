@@ -24,8 +24,8 @@ translated = translateDevice{
 	translation = {0, 0.5, 0.3}
 }
 
---addManipulator(remote)
-addManipulator(
+--addDevice(remote)
+addDevice(
 	translated
 )
 
@@ -41,8 +41,8 @@ local pos = {
 
 showPositions = function()
 	print("showPositions() called:")
-	for name, manip in pairs(pos) do
-		print(name .. ":", manip.matrix:getTrans())
+	for name, dev in pairs(pos) do
+		print(name .. ":", dev.matrix:getTrans())
 	end
 end
 

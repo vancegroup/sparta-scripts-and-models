@@ -19,6 +19,6 @@ translated = translateDevice{
 	translation = {0, 0.5, 0.3}
 }
 
-addManipulator(
+addDevice(
 	translated
 )

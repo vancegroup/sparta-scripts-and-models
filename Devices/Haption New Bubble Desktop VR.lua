@@ -13,7 +13,7 @@ myBubble = TranslationalBubble(0.15, 100, .5, TranslationalBubble.PeakRingVeloci
 
 bubble = BubbleNav{
 	bubble = myBubble,
-	manipulator = haption,
+	device = haption,
 	position = {.20, 1.0, -.35}, -- starting position for bubble
 	elasticForce = true,
 	deviceCenter = {0, 0.01678, 0.6},
@@ -22,4 +22,4 @@ bubble = BubbleNav{
 	navigator = nav
 }
 
-addManipulator(nav:transformManipulator(bubble))
+addDevice(nav:transformManipulator(bubble))

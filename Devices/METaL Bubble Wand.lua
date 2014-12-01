@@ -1,7 +1,7 @@
 
 wand = Devices.Gadgeteer.Wand{position = "VJWand"}
 bubble = BubbleTechnique{
-	manipulator = wand,
+	device = wand,
 	radius = 1, -- radius of bubble in meters
 	stiffness = 100.0, -- bubble stiffness
 	bubbleVelocityScale = 15.0, -- default of 3.0
@@ -12,4 +12,4 @@ bubble = BubbleTechnique{
 	lockedToFloor = true,
 	navigate = {true, false, true} -- navigate in x and z only
 }
-addManipulator(bubble)
+addDevice(bubble)

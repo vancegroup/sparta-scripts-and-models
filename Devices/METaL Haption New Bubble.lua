@@ -16,7 +16,7 @@ bubble = BubbleNav{
 		150, -- stiffness
 		1, -- velocity scale
 		TranslationalBubble.PeakRingVelocity),
-	manipulator = virtuose,
+	device = virtuose,
 	position = {0.0, 0.0, 0.0}, -- starting position for bubble
 	elasticForce = true,
 	deviceCenter = {0, 0.0, 0.55},
@@ -27,7 +27,7 @@ bubble = BubbleNav{
 	lockedToFloor = true
 }
 
-xlatemanip = translateDevice{
+xlatedev = translateDevice{
 	TrackedTransform(
 		nav:transformManipulator(bubble),
 		"HandTargetProxy",
@@ -35,7 +35,7 @@ xlatemanip = translateDevice{
 	),
 	translation = {0, 0.5, 0.3}
 }
-addManipulator(xlatemanip)
+addDevice(xlatedev)
 
 
 

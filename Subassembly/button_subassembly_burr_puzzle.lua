@@ -92,16 +92,16 @@ local lastButtonState3 = false
 local gloveInProximity = false
 local buttonstate = "OFF"
 
-function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, manip2_osg)
-	--manip2 and manip2_osg are optional parameters for a second omni device
-	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+function buttonDistanceCheck(buttonXForm, dev, dev_osg, radius, dev2, dev2_osg)
+	--dev2 and dev2_osg are optional parameters for a second omni device
+	local distance = (dev_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 
-	if (manip2 ~= nil and manip2_osg ~= nil) then
-		local distance2 = (manip2_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+	if (dev2 ~= nil and dev2_osg ~= nil) then
+		local distance2 = (dev2_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 
 		if (distance < radius and distance2 > radius) or (distance > radius and distance2 < radius) then
 			setButtonTransparencyON()
-			if (manip:getButtonState(1) or manip2:getButtonState(1)) and lastButtonState2 == false then
+			if (dev:getButtonState(1) or dev2:getButtonState(1)) and lastButtonState2 == false then
 				if buttonstate == "OFF" then
 					buttonstate = "ON"
 					setButtonModelON()
@@ -119,7 +119,7 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, mani
 	else
 		if distance < radius then
 			setButtonTransparencyON()
-			if manip:getButtonState(1) and lastButtonState2 == false then
+			if dev:getButtonState(1) and lastButtonState2 == false then
 				if buttonstate == "OFF" then
 					buttonstate = "ON"
 					setButtonModelON()
@@ -129,7 +129,7 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, mani
 				end
 				lastButtonState2 = true
 				return true
-			elseif not manip:getButtonState(1) and lastButtonState2 == true then
+			elseif not dev:getButtonState(1) and lastButtonState2 == true then
 				lastButtonState2 = false
 				return false
 			else
@@ -142,8 +142,8 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius, manip2, mani
 	end
 end
 
-function gloveDistCheck(buttonXForm, manip, manip_osg, radius)
-	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+function gloveDistCheck(buttonXForm, dev, dev_osg, radius)
+	local distance = (dev_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 	if distance < radius then
 		setButtonTransparencyON()
 		if gloveInProximity == false then
@@ -193,12 +193,12 @@ end
 
 --this ensures that the button doesn't toggle between on and off repeatedly based on the frame checks
 
-function UserAddRemove(manip,lastButtonState)
+function UserAddRemove(dev,lastButtonState)
 	local function f()
-		if manip:getButtonState(1) and manip.hovering and lastButtonState3 == false then
+		if dev:getButtonState(1) and dev.hovering and lastButtonState3 == false then
 			lastButtonState3 = true
-			return manip:getHover()
-		elseif not manip:getButtonState(1) then
+			return dev:getHover()
+		elseif not dev:getButtonState(1) then
 			lastButtonState3 = false
 			return nil
 		else
@@ -208,9 +208,9 @@ function UserAddRemove(manip,lastButtonState)
 	return f
 end
 
-function UserAddRemove2(manip1,manip2)
-	function1 = UserAddRemove(manip1,lastButtonState1)
-	function2 = UserAddRemove(manip2,lastButtonState2)
+function UserAddRemove2(dev1,dev2)
+	function1 = UserAddRemove(dev1,lastButtonState1)
+	function2 = UserAddRemove(dev2,lastButtonState2)
 	local function f()
 		return function1() or function2()
 	end

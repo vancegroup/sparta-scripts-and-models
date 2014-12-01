@@ -95,8 +95,8 @@ local lastButtonState2 = false
 local gloveInProximity = false
 buttonstate = "OFF"
 
-function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
-	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+function buttonDistanceCheck(buttonXForm, dev, dev_osg, radius)
+	local distance = (dev_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 	if distance < radius then
 		setButtonTransparencyON()
 		if omni:getButtonState(1) and lastButtonState2 == false then
@@ -118,8 +118,8 @@ function buttonDistanceCheck(buttonXForm, manip, manip_osg, radius)
 	return false
 end
 
-function gloveDistCheck(buttonXForm, manip, manip_osg, radius)
-	local distance = (manip_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
+function gloveDistCheck(buttonXForm, dev, dev_osg, radius)
+	local distance = (dev_osg:getMatrix():getTrans() - buttonXForm:getPosition()):length()
 	if distance < radius then
 		setButtonTransparencyON()
 		if gloveInProximity == false then

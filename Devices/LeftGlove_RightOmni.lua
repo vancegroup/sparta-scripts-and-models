@@ -7,16 +7,16 @@ local left = Devices.Gadgeteer.Glove{position = "LeftGlove",
 	reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
 	calibFile = "assets/calibrations/calib-left-5dt.txt",
 }
-addManipulator(left)
+addDevice(left)
 
 
-local manip = Devices.Sensable.PhantomOmni{
+local dev = Devices.Sensable.PhantomOmni{
 	name = "Omni2",
 	forces = true,
 	scale = 4.0
 }
 local right = translateDevice{
-	manip,
+	dev,
 	translation = {0.6, 1.0, -0.5}
 }
-addManipulator(right)
+addDevice(right)

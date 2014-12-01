@@ -6,7 +6,7 @@ omni = Devices.Sensable.PhantomOmni{
 
 --This is the "old" method, the new method is BubbleNav
 bubble = BubbleTechnique{
-	manipulator = omni,
+	device = omni,
 	radius = 0.45, -- radius of bubble in meters
 	stiffness = 50.0, -- bubble stiffness
 	bubbleVelocityScale = 7.0, -- default of 3.0
@@ -17,4 +17,4 @@ bubble = BubbleTechnique{
 	navigate = {true, false, true} -- navigate in x and z only
 }
 
-addManipulator(bubble)
+addDevice(bubble)

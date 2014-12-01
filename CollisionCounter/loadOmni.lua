@@ -4,5 +4,5 @@ omni = Devices.Sensable.PhantomOmni{
 	scale = 8.0,
 }
 
-addManipulator(omni)
+addDevice(omni)
 

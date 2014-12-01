@@ -8,7 +8,7 @@ params = defineSimulationParameters{
 }
 
 wand = Devices.Gadgeteer.Wand{position = "VJWand"}
-addManipulator(wand)
+addDevice(wand)
 
 --Load in models
 voxSize = 0.003

@@ -10,8 +10,8 @@ remote.gain = 1
 
 tracked = TrackedTransform(remote, "VJWand", true)
 
---addManipulator(remote)
-addManipulator(
+--addDevice(remote)
+addDevice(
 	translateDevice{
 		tracked,
 		translation = {0.6, 1.0, -0.5}
