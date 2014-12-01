@@ -1,23 +1,8 @@
 --Left Omni - Right Glove
+require "AddAppDirectory"
+AddAppDirectory(true)
 
-addDevice(
-	translateDevice{
-		translation = {0.0, 1.0, -0.5},
-		Devices.Sensable.PhantomOmni{
-			name = "Omni1",
-			forces = true,
-			scale = 4.0
-		}
-	}
-)
+print "DEPRECATED: Don't use a script with two devices in it - use the two scripts, one for each device."
 
-
-addDevice(
-	Devices.Gadgeteer.Glove{
-		position = "RightGlove",
-		options = "USB0",
-		hardware = "GloveHardware5DT",
-		reportType = "KalmanFilter", -- "KalmanFilter", "Raw", "HardwareCalibrated", "GloveToolsCalibrated"
-		calibFile = "assets/calibrations/calib-right-5dt.txt",
-	}
-)
+runfile "LeftOmni"
+runfile "RightGlove"
