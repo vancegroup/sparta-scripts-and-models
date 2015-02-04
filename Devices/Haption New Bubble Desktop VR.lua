@@ -22,4 +22,4 @@ bubble = BubbleNav{
 	navigator = nav
 }
 
-addDevice(nav:transformManipulator(bubble))
+addDevice(nav:transformDevice(bubble))

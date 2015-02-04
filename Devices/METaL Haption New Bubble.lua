@@ -29,7 +29,7 @@ bubble = BubbleNav{
 
 xlatedev = translateDevice{
 	TrackedTransform(
-		nav:transformManipulator(bubble),
+		nav:transformDevice(bubble),
 		"HandTargetProxy",
 		false
 	),
